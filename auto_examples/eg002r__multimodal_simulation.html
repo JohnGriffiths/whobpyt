@@ -47,6 +47,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fitting Wong_Wang model (HCP data)" href="eg003r__fitting_rww_example.html" />
     <link rel="prev" title="Installation" href="../getting_started/installation.html" /> 
 </head>
 
@@ -112,6 +113,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#plots-of-s-e-and-s-i-after-training">Plots of S_E and S_I After Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plots-of-eeg-psd">Plots of EEG PSD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#plots-of-bold-fc">Plots of BOLD FC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg003r__fitting_rww_example.html">Fitting Wong_Wang model (HCP data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg003r__fitting_rww_example.html#importage">Importage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg004r__fitting_JR_example.html">Fitting JR model (Tepit data)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg004r__fitting_JR_example.html#importage">Importage</a></li>
 </ul>
 </li>
 </ul>
@@ -466,85 +475,85 @@ Also, written in such a way as to be able to track and plot indiviual components
 tensor([0.1500, 0.1500, 0.1500, 0.1500, 0.1500, 0.1500, 0.1500, 0.1500],
        requires_grad=True))]
 0
-totalLoss =  0.45864400267601013
+totalLoss =  0.4574517607688904
 J values =  [0.24999991 0.24999991 0.24999991 0.24999991 0.24999991 0.24999991
  0.24999991 0.24999991]
 1
-totalLoss =  0.44789883494377136
-J values =  [0.3501355  0.35012525 0.3501299  0.35012758 0.35012814 0.35013068
- 0.35013446 0.35012996]
+totalLoss =  0.44885531067848206
+J values =  [0.35012227 0.35012722 0.35013235 0.35012776 0.35011646 0.3501268
+ 0.3501235  0.3501244 ]
 2
-totalLoss =  0.43810659646987915
-J values =  [0.4504806  0.45046544 0.45047972 0.45047057 0.4504734  0.45046175
- 0.4504776  0.4504774 ]
+totalLoss =  0.43869754672050476
+J values =  [0.45046633 0.45047072 0.45047417 0.45047122 0.4504503  0.45046428
+ 0.45046604 0.45046407]
 3
-totalLoss =  0.42809343338012695
-J values =  [0.55112606 0.55110687 0.55113083 0.5511182  0.5511246  0.5511034
- 0.55111593 0.5511246 ]
+totalLoss =  0.4274100363254547
+J values =  [0.55111754 0.5511164  0.55111974 0.55111706 0.55109096 0.55110526
+ 0.5511138  0.5511124 ]
 4
-totalLoss =  0.416359543800354
-J values =  [0.6521633  0.65214634 0.6521741  0.65216213 0.65216696 0.65214473
- 0.6521431  0.6521631 ]
+totalLoss =  0.4152757227420807
+J values =  [0.6521656  0.6521536  0.65216136 0.65215605 0.6521295  0.65214145
+ 0.65215623 0.6521613 ]
 5
-totalLoss =  0.40256544947624207
-J values =  [0.7536916  0.7536677  0.7536966  0.75368845 0.7536954  0.7536704
- 0.75365955 0.753688  ]
+totalLoss =  0.4010635018348694
+J values =  [0.7536939  0.7536826  0.75368977 0.7536819  0.7536586  0.7536614
+ 0.7536856  0.75369334]
 6
-totalLoss =  0.38674867153167725
-J values =  [0.85579324 0.8557631  0.85579526 0.8557883  0.8557988  0.8557709
- 0.8557535  0.8557859 ]
+totalLoss =  0.3872312605381012
+J values =  [0.8557962  0.8557841  0.8557889  0.85578114 0.8557578  0.85575664
+ 0.8557842  0.85579425]
 7
-totalLoss =  0.3684921860694885
-J values =  [0.95855165 0.95851666 0.95855135 0.9585449  0.9585585  0.9585284
- 0.95850587 0.95854145]
+totalLoss =  0.3695373237133026
+J values =  [0.9585551  0.9585414  0.9585447  0.9585375  0.95851344 0.95851
+ 0.9585401  0.9585518 ]
 8
-totalLoss =  0.35087674856185913
-J values =  [1.0620401 1.0620013 1.0620381 1.0620326 1.062048  1.062017  1.0619903
- 1.0620277]
+totalLoss =  0.35180193185806274
+J values =  [1.0620451 1.0620291 1.0620326 1.0620259 1.0620009 1.0619951 1.0620275
+ 1.0620406]
 9
-totalLoss =  0.3285784125328064
-J values =  [1.1663299 1.1662722 1.1663134 1.1663095 1.1663239 1.1662918 1.1662617
- 1.1663011]
+totalLoss =  0.3294772803783417
+J values =  [1.1663214 1.1663059 1.1663094 1.1663022 1.1662774 1.166269  1.1663036
+ 1.1663172]
 10
-totalLoss =  0.305279016494751
-J values =  [1.2714273 1.2713627 1.2714067 1.2714026 1.2714144 1.2713809 1.2713503
- 1.2713913]
+totalLoss =  0.3054693639278412
+J values =  [1.2714148 1.2713976 1.2714038 1.2713966 1.2713711 1.2713584 1.2713952
+ 1.2714089]
 11
-totalLoss =  0.2762204110622406
-J values =  [1.3773075 1.3772352 1.3772829 1.3772879 1.3772919 1.377255  1.3772252
- 1.377266 ]
+totalLoss =  0.27489587664604187
+J values =  [1.3772732 1.3772599 1.3772724 1.3772655 1.377235  1.3772197 1.3772624
+ 1.377264 ]
 12
-totalLoss =  0.23791906237602234
-J values =  [1.4837457 1.4837112 1.4837489 1.4837706 1.4837723 1.4837078 1.4836901
- 1.4837238]
+totalLoss =  0.2366238832473755
+J values =  [1.4837097 1.4836998 1.4837153 1.4836934 1.4836526 1.4836535 1.4836982
+ 1.4837221]
 13
-totalLoss =  0.1904875934123993
-J values =  [1.5901376 1.590198  1.5902025 1.5902263 1.5902276 1.590198  1.590155
- 1.5901765]
+totalLoss =  0.19007046520709991
+J values =  [1.5901455 1.5901539 1.5901165 1.5901539 1.5901147 1.5900648 1.5901535
+ 1.5901052]
 14
-totalLoss =  0.1201000064611435
-J values =  [1.6931769 1.6932012 1.6931942 1.6932623 1.6934007 1.6932384 1.6932122
- 1.6933092]
+totalLoss =  0.12271225452423096
+J values =  [1.6934526 1.6935118 1.6934464 1.6934408 1.6934029 1.6934103 1.6934263
+ 1.693365 ]
 15
-totalLoss =  0.0027273669838905334
-J values =  [1.7944396 1.7942604 1.7944651 1.794506  1.7949251 1.7944443 1.7945142
- 1.7947417]
+totalLoss =  0.003117660293355584
+J values =  [1.7955842 1.7958437 1.7956442 1.7955624 1.7955351 1.7956803 1.7956059
+ 1.7955022]
 16
-totalLoss =  0.004705619066953659
-J values =  [1.885083  1.884734  1.8851053 1.8850737 1.8857661 1.8850769 1.8852274
- 1.8855156]
+totalLoss =  0.004870815668255091
+J values =  [1.8870248 1.8874037 1.8870585 1.8869394 1.8868967 1.8871876 1.8870994
+ 1.886836 ]
 17
-totalLoss =  0.008718663826584816
-J values =  [1.966326  1.9658219 1.9663398 1.966248  1.9672024 1.9663382 1.9665208
- 1.9669092]
+totalLoss =  0.008092615753412247
+J values =  [1.9690533 1.9695048 1.969065  1.9689023 1.968819  1.9692168 1.9691947
+ 1.9687359]
 18
-totalLoss =  0.008397020399570465
-J values =  [2.0393622 2.0386539 2.0393083 2.0391612 2.0403361 2.0393493 2.0395005
- 2.040013 ]
+totalLoss =  0.010841188952326775
+J values =  [2.042743  2.0432513 2.04271   2.0424867 2.0423877 2.042858  2.0429342
+ 2.0423338]
 19
-totalLoss =  0.011171616613864899
-J values =  [2.1049833 2.1040988 2.1049218 2.1047394 2.1060565 2.1049135 2.105132
- 2.1056547]
+totalLoss =  0.010404725559055805
+J values =  [2.1090064 2.1095464 2.1089    2.1086543 2.1085088 2.109072  2.1092114
+ 2.1085157]
 
 Text(0.5, 1.0, &#39;J_{i} Values Changing Over Training Epochs&#39;)
 </pre></div>
@@ -564,7 +573,7 @@ Text(0.5, 1.0, &#39;J_{i} Values Changing Over Training Epochs&#39;)
 </div>
 <img alt="S_E and S_I" class="sphx-glr-single-img" src="../_images/sphx_glr_eg002r__multimodal_simulation_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f4a5a291370&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7ff165d5e8e0&gt;
 </pre></div>
 </div>
 </div>
@@ -606,7 +615,7 @@ Text(0.5, 1.0, &#39;J_{i} Values Changing Over Training Epochs&#39;)
 &lt;AxesSubplot: title={&#39;center&#39;: &#39;Simulated BOLD FC: After Training&#39;}&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 22 minutes  59.454 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 27 minutes  18.359 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg002r-multimodal-simulation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/3c5011f8f7f9c596535d7002f9b87c31/eg002r__multimodal_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg002r__multimodal_simulation.py</span></code></a></p>
@@ -626,6 +635,8 @@ Text(0.5, 1.0, &#39;J_{i} Values Changing Over Training Epochs&#39;)
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eg003r__fitting_rww_example.html" class="btn btn-neutral float-right" title="Fitting Wong_Wang model (HCP data)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../getting_started/installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
