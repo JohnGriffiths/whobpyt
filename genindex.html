@@ -97,9 +97,32 @@
               
             
             
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <p class="caption"><span class="caption-text">About WhoBPyT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about_whobpyt/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about_whobpyt/architecture.html">WhoBPyT Code Base Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about_whobpyt/architecture.html#module-structure">Module structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about_whobpyt/architecture.html#api-usage">API Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about_whobpyt/architecture.html#system-model-and-biophysical-parameters">System, Model, and Biophysical Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="about_whobpyt/architecture.html#rww-params">RWW_Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="about_whobpyt/architecture.html#rww-layer">RWW_Layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/installation.html">Installation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="API/run.html">Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API/models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API/optimization.html">Optimization</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html">Fitting S_E Mean to 0.164 using default RWW Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#importage">Importage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#defining-model-parameters">Defining Model Parameters</a></li>
@@ -110,17 +133,20 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#defining-the-cnmm-model">Defining the CNMM Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#defining-the-objective-function">Defining the Objective Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#training-the-model">Training The Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#plots-of-s-e-and-s-i-after-training">Plots of S_E and S_I After Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#plots-of-eeg-psd">Plots of EEG PSD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#plots-of-bold-fc">Plots of BOLD FC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#model-simulation">Model Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg002r__multimodal_simulation.html#cnmm-validation-model">CNMM Validation Model</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/eg003r__fitting_rww_example.html">Fitting Wong_Wang model (HCP data)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg003r__fitting_rww_example.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg003r__fitting_rww_example.html#model-training">Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg003r__fitting_rww_example.html#model-evaluation-with-20-window-for-warmup">Model Evaluation (with 20 window for warmup)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/eg004r__fitting_JR_example.html">Fitting JR model (Tepit data)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_examples/eg004r__fitting_JR_example.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg004r__fitting_JR_example.html#model-training">Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_examples/eg004r__fitting_JR_example.html#model-evaluation-with-20-window-for-warmup">Model Evaluation (with 20 window for warmup)</a></li>
 </ul>
 </li>
 </ul>
@@ -190,8 +216,175 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  
 </div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.__init__">__init__() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+
+      <ul>
+        <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW.__init__">(whobpyt.models.RWW.RNNRWW method)</a>
+</li>
+        <li><a href="API/models.html#whobpyt.models.RWW2.RWW2.__init__">(whobpyt.models.RWW2.RWW2 method)</a>
+</li>
+        <li><a href="API/optimization.html#whobpyt.optimization.CostsFC.__init__">(whobpyt.optimization.CostsFC method)</a>
+</li>
+        <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD.__init__">(whobpyt.optimization.CostsPSD method)</a>
+</li>
+        <li><a href="API/optimization.html#whobpyt.optimization.CostsTS.__init__">(whobpyt.optimization.CostsTS method)</a>
+</li>
+        <li><a href="API/run.html#whobpyt.run.Model_fitting.__init__">(whobpyt.run.Model_fitting method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD.calcLoss">calcLoss() (whobpyt.optimization.CostsPSD method)</a>
+</li>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD.calcPSD">calcPSD() (whobpyt.optimization.CostsPSD method)</a>
+</li>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsFC">CostsFC (class in whobpyt.optimization)</a>
+</li>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD">CostsPSD (class in whobpyt.optimization)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsTS">CostsTS (class in whobpyt.optimization)</a>
+</li>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.createDelayIC">createDelayIC() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+</li>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.createIC">createIC() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+
+      <ul>
+        <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW.createIC">(whobpyt.models.RWW.RNNRWW method)</a>
+</li>
+        <li><a href="API/models.html#whobpyt.models.RWW2.RWW2.createIC">(whobpyt.models.RWW2.RWW2 method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD.downSmoothPSD">downSmoothPSD() (whobpyt.optimization.CostsPSD method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/run.html#whobpyt.run.Model_fitting.evaluate">evaluate() (whobpyt.run.Model_fitting method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.forward">forward() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+
+      <ul>
+        <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW.forward">(whobpyt.models.RWW.RNNRWW method)</a>
+</li>
+        <li><a href="API/models.html#whobpyt.models.RWW2.RWW2.forward">(whobpyt.models.RWW2.RWW2 method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.info">info() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+
+      <ul>
+        <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW.info">(whobpyt.models.RWW.RNNRWW method)</a>
+</li>
+        <li><a href="API/models.html#whobpyt.models.RWW2.RWW2.info">(whobpyt.models.RWW2.RWW2 method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsFC.loss">loss() (whobpyt.optimization.CostsFC method)</a>
+
+      <ul>
+        <li><a href="API/optimization.html#whobpyt.optimization.CostsTS.loss">(whobpyt.optimization.CostsTS method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/run.html#whobpyt.run.Model_fitting">Model_fitting (class in whobpyt.run)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN">RNNJANSEN (class in whobpyt.models.JansenRit)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW">RNNRWW (class in whobpyt.models.RWW)</a>
+</li>
+      <li><a href="API/models.html#whobpyt.models.RWW2.RWW2">RWW2 (class in whobpyt.models.RWW2)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/run.html#whobpyt.run.Model_fitting.save">save() (whobpyt.run.Model_fitting method)</a>
+</li>
+      <li><a href="API/optimization.html#whobpyt.optimization.CostsPSD.scalePSD">scalePSD() (whobpyt.optimization.CostsPSD method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/models.html#whobpyt.models.JansenRit.RNNJANSEN.setModelParameters">setModelParameters() (whobpyt.models.JansenRit.RNNJANSEN method)</a>
+
+      <ul>
+        <li><a href="API/models.html#whobpyt.models.RWW.RNNRWW.setModelParameters">(whobpyt.models.RWW.RNNRWW method)</a>
+</li>
+        <li><a href="API/models.html#whobpyt.models.RWW2.RWW2.setModelParameters">(whobpyt.models.RWW2.RWW2 method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="API/run.html#whobpyt.run.Model_fitting.train">train() (whobpyt.run.Model_fitting method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 
 
            </div>
