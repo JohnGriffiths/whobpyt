@@ -47,6 +47,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Evaluating CPU vs. GPU Performance" href="eg005r__gpu_support.html" />
     <link rel="prev" title="Fitting Wong_Wang model (HCP data)" href="eg003r__fitting_rww_example.html" /> 
 </head>
 
@@ -99,12 +100,19 @@
               <p class="caption"><span class="caption-text">About WhoBPyT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/architecture.html">WhoBPyT Code Base Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#module-structure">Module structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#api-usage">API Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#system-model-and-biophysical-parameters">System, Model, and Biophysical Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/architecture.html#rww-params">RWW_Params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/architecture.html#rww-layer">RWW_Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/architecture.html">Code Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#simplified-usage-pseudo-code">Simplified Usage Pseudo Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#whole-brain-models">Whole Brain Models:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#objective-function-components">Objective Function Components:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#parameter-fitting-paradigms">Parameter Fitting Paradigms:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#package-expansions">Package Expansions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/background.html">Background Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/background.html#neuroimaging-data">Neuroimaging Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/background.html#system-model-and-biophysical-parameters">System, Model, and Biophysical Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/background.html#rwwexcinb">RWWExcInb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/background.html#jansen-rit">Jansen-Rit</a></li>
 </ul>
 </li>
 </ul>
@@ -113,22 +121,23 @@
 <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_in_colab.html">Running whobpyt in google colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_in_codespaces.html">Running whobpyt in GitHub Codespaces</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../API/run.html">Run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API/models.html">Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API/optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/run.html">Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/datatypes.html">Data Types</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="eg002r__multimodal_simulation.html">Fitting S_E Mean to 0.164 using default RWW Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#importage">Importage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-model-parameters">Defining Model Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#further-adjusting-parameters-for-network">Further Adjusting Parameters for Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-physically-possible-in-3d-space-structural-connectivity-matrix">Generating a physically possible (in 3D Space) Structural Connectivity Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-lead-field-matrix">Generating a Lead Field Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-connectivity-matrix-for-channel-space">Generating a “Connectivity Matrix” for Channel Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#using-the-synthetic-cube-data-for-demo-purposes">Using the Synthetic Cube Data For Demo Purposes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-the-cnmm-model">Defining the CNMM Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-the-objective-function">Defining the Objective Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#training-the-model">Training The Model</a></li>
@@ -146,6 +155,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#importage">Importage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-training">Model Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-evaluation-with-20-window-for-warmup">Model Evaluation (with 20 window for warmup)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg005r__gpu_support.html">Evaluating CPU vs. GPU Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#defining-the-data-and-parameters">Defining the Data and Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#training-a-cnmm-model-fixed-psd-with-batched-paradigm">Training a CNMM Model - Fixed PSD with Batched Paradigm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#training-a-cnmm-model-multimodal-objective-with-fng-fpg-paradigm">Training a CNMM Model - Multimodal Objective with FNG-FPG Paradigm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#cnmm-verification-model">CNMM Verification Model</a></li>
 </ul>
 </li>
 </ul>
@@ -229,7 +246,7 @@
 
 <span class="c1"># whobpyt stuff</span>
 <span class="kn">import</span> <span class="nn">whobpyt</span>
-<span class="kn">from</span> <span class="nn">whobpyt.datatypes</span> <span class="kn">import</span> <span class="n">par</span><span class="p">,</span> <span class="n">Recording</span>
+<span class="kn">from</span> <span class="nn">whobpyt.datatypes</span> <span class="kn">import</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">,</span> <a href="../API/datatypes.html#whobpyt.datatypes.Recording" title="whobpyt.datatypes.Recording" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">Recording</span></a>
 <span class="kn">from</span> <span class="nn">whobpyt.models.JansenRit</span> <span class="kn">import</span> <a href="../API/models.html#whobpyt.models.JansenRit.RNNJANSEN" title="whobpyt.models.JansenRit.RNNJANSEN" class="sphx-glr-backref-module-whobpyt-models-JansenRit sphx-glr-backref-type-py-class"><span class="n">RNNJANSEN</span></a><span class="p">,</span> <span class="n">ParamsJR</span>
 <span class="kn">from</span> <span class="nn">whobpyt.optimization.custom_cost_JR</span> <span class="kn">import</span> <span class="n">CostsJR</span>
 <span class="kn">from</span> <span class="nn">whobpyt.run</span> <span class="kn">import</span> <a href="../API/run.html#whobpyt.run.Model_fitting" title="whobpyt.run.Model_fitting" class="sphx-glr-backref-module-whobpyt-run sphx-glr-backref-type-py-class"><span class="n">Model_fitting</span></a>
@@ -299,7 +316,7 @@
 <p>prepare data structure of the model</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eeg_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">EEGstep</span> <span class="o">=</span> <span class="n">tr</span>
-<span class="n">data_mean</span> <span class="o">=</span> <span class="n">Recording</span><span class="p">(</span><span class="n">eeg_data</span><span class="p">,</span> <span class="n">EEGstep</span><span class="p">)</span> <span class="c1">#dataloader(eeg_data.T, num_epochs, batch_size)</span>
+<a href="../API/datatypes.html#whobpyt.datatypes.Recording" title="whobpyt.datatypes.Recording" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_mean</span></a> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.Recording" title="whobpyt.datatypes.Recording" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">Recording</span></a><span class="p">(</span><span class="n">eeg_data</span><span class="p">,</span> <span class="n">EEGstep</span><span class="p">)</span> <span class="c1">#dataloader(eeg_data.T, num_epochs, batch_size)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -309,12 +326,12 @@
 <p>get model parameters structure and define the fitted parameters by setting non-zero variance for the model</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">output_size</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
 <span class="n">lm_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">output_size</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
-<span class="n">params</span> <span class="o">=</span> <span class="n">ParamsJR</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mf">3.25</span><span class="p">),</span> <span class="n">a</span><span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">B</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">22</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">g</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">g_f</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">g_b</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> \
-                  <span class="n">c1</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">135</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c3</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c4</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>\
-                  <span class="n">std_in</span><span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">v0</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mf">0.56</span><span class="p">),</span> <span class="n">y0</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>\
-                  <span class="n">mu</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="c1">#k = [10, .3],</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">ParamsJR</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mf">3.25</span><span class="p">),</span> <span class="n">a</span><span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">B</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">22</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">g</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">g_f</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">g_b</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">1</span><span class="p">),</span> \
+                  <span class="n">c1</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">135</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c2</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c3</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">c4</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">135</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>\
+                  <span class="n">std_in</span><span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">v0</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mf">0.56</span><span class="p">),</span> <span class="n">y0</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>\
+                  <span class="n">mu</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="c1">#k = [10, .3],</span>
                   <span class="c1">#cy0 = [5, 0], ki=[ki0, 0], k_aud=[k_aud0, 0], lm=[lm, 1.0 * np.ones((output_size, 200))+lm_v], \</span>
-                  <span class="n">cy0</span> <span class="o">=</span> <span class="n">par</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">ki</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="n">ki0</span><span class="p">),</span> <span class="n">lm</span><span class="o">=</span><span class="n">par</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">output_size</span><span class="p">,</span> <span class="n">node_size</span><span class="p">))</span><span class="o">+</span><span class="n">lm_v</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                  <span class="n">cy0</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">ki</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="n">ki0</span><span class="p">),</span> <span class="n">lm</span><span class="o">=</span><a href="../API/datatypes.html#whobpyt.datatypes.par" title="whobpyt.datatypes.par" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class"><span class="n">par</span></a><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">output_size</span><span class="p">,</span> <span class="n">node_size</span><span class="p">))</span><span class="o">+</span><span class="n">lm_v</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>call model want to fit</p>
@@ -322,7 +339,7 @@
 </pre></div>
 </div>
 <p>create objective function</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ObjFun</span> <span class="o">=</span> <span class="n">CostsJR</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ObjFun</span> <span class="o">=</span> <span class="n">CostsJR</span><span class="p">(</span><a href="../API/models.html#whobpyt.models.JansenRit.RNNJANSEN" title="whobpyt.models.JansenRit.RNNJANSEN" class="sphx-glr-backref-module-whobpyt-models-JansenRit sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p>call model fit</p>
@@ -334,50 +351,50 @@
 <h2>Model Training<a class="headerlink" href="#model-training" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">node_size</span><span class="p">,</span><span class="n">hidden_size</span><span class="p">,</span><span class="n">time_dim</span><span class="p">))</span>
 <span class="n">u</span><span class="p">[:,:,</span><span class="mi">110</span><span class="p">:</span><span class="mi">120</span><span class="p">]</span><span class="o">=</span> <span class="mi">200</span>
-<a href="../API/run.html#whobpyt.run.Model_fitting.train" title="whobpyt.run.Model_fitting.train" class="sphx-glr-backref-module-whobpyt-run sphx-glr-backref-type-py-method"><span class="n">F</span><span class="o">.</span><span class="n">train</span></a><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_mean</span><span class="p">],</span> <span class="n">num_epochs</span> <span class="o">=</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">TPperWindow</span><span class="p">)</span>
+<a href="../API/run.html#whobpyt.run.Model_fitting.train" title="whobpyt.run.Model_fitting.train" class="sphx-glr-backref-module-whobpyt-run sphx-glr-backref-type-py-method"><span class="n">F</span><span class="o">.</span><span class="n">train</span></a><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRecs</span> <span class="o">=</span> <span class="p">[</span><a href="../API/datatypes.html#whobpyt.datatypes.Recording" title="whobpyt.datatypes.Recording" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_mean</span></a><span class="p">],</span> <span class="n">num_epochs</span> <span class="o">=</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">TPperWindow</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch:  0
-epoch:  0 loss: -22813.467 Pseudo FC_cor:  0.29925856082549585 cos_sim:  0.029237695265117398
+epoch:  0 loss: -22813.47 Pseudo FC_cor:  0.23536556173815765 cos_sim:  0.023903131360369513
 Epoch:  1
-epoch:  1 loss: -24701.758 Pseudo FC_cor:  0.2837917000958131 cos_sim:  0.02731455593047175
+epoch:  1 loss: -24701.775 Pseudo FC_cor:  0.20678361604211085 cos_sim:  0.02975309737813754
 Epoch:  2
-epoch:  2 loss: -26248.441 Pseudo FC_cor:  0.40805380056245527 cos_sim:  0.048215313582066655
+epoch:  2 loss: -26248.47 Pseudo FC_cor:  0.32377551397281157 cos_sim:  0.009545335495319968
 Epoch:  3
-epoch:  3 loss: -27553.184 Pseudo FC_cor:  0.48606466982631585 cos_sim:  0.2278981915174687
+epoch:  3 loss: -27553.152 Pseudo FC_cor:  0.44501808566601503 cos_sim:  0.1397790935806555
 Epoch:  4
-epoch:  4 loss: -28682.605 Pseudo FC_cor:  0.9312460575712245 cos_sim:  0.361703828174697
+epoch:  4 loss: -28682.693 Pseudo FC_cor:  0.8906497443087695 cos_sim:  0.196974866231014
 Epoch:  5
-epoch:  5 loss: -29680.236 Pseudo FC_cor:  0.8717359296756837 cos_sim:  0.3614193644278997
+epoch:  5 loss: -29680.27 Pseudo FC_cor:  0.8673855446994572 cos_sim:  0.37414791092488653
 Epoch:  6
-epoch:  6 loss: -30574.746 Pseudo FC_cor:  0.8998169425818163 cos_sim:  0.40776006381142127
+epoch:  6 loss: -30574.7 Pseudo FC_cor:  0.9143889344426591 cos_sim:  0.1819510776985402
 Epoch:  7
-epoch:  7 loss: -31386.404 Pseudo FC_cor:  0.8202877370296734 cos_sim:  0.15333448792576101
+epoch:  7 loss: -31386.39 Pseudo FC_cor:  0.8847917302462743 cos_sim:  0.3449350665102903
 Epoch:  8
-epoch:  8 loss: -32129.93 Pseudo FC_cor:  0.9140570869245159 cos_sim:  0.3002738396182591
+epoch:  8 loss: -32129.916 Pseudo FC_cor:  0.7589117190867081 cos_sim:  0.1602374740102152
 Epoch:  9
-epoch:  9 loss: -32816.26 Pseudo FC_cor:  0.9464857792552834 cos_sim:  0.41322233485025894
+epoch:  9 loss: -32816.19 Pseudo FC_cor:  0.867476573843407 cos_sim:  0.3554194694381831
 Epoch:  10
-epoch:  10 loss: -33453.918 Pseudo FC_cor:  0.8184094057026208 cos_sim:  0.5130906567378508
+epoch:  10 loss: -33453.984 Pseudo FC_cor:  0.9149292895625794 cos_sim:  0.36850470889527365
 Epoch:  11
-epoch:  11 loss: -34049.75 Pseudo FC_cor:  0.8455727639477452 cos_sim:  0.36942041674559245
+epoch:  11 loss: -34049.73 Pseudo FC_cor:  0.8711765691333853 cos_sim:  0.36551724476260194
 Epoch:  12
-epoch:  12 loss: -34609.156 Pseudo FC_cor:  0.9152466910287191 cos_sim:  0.3956678754464097
+epoch:  12 loss: -34609.137 Pseudo FC_cor:  0.8806123981429247 cos_sim:  0.2591669881328716
 Epoch:  13
-epoch:  13 loss: -35136.38 Pseudo FC_cor:  0.8235346963918766 cos_sim:  0.4360829200305862
+epoch:  13 loss: -35136.4 Pseudo FC_cor:  0.8505916466195471 cos_sim:  0.45625118047092195
 Epoch:  14
-epoch:  14 loss: -35635.195 Pseudo FC_cor:  0.9020719668530711 cos_sim:  0.3411360443107452
+epoch:  14 loss: -35635.29 Pseudo FC_cor:  0.9519296099779679 cos_sim:  0.34942260614842013
 Epoch:  15
-epoch:  15 loss: -36108.754 Pseudo FC_cor:  0.8676507314174973 cos_sim:  0.40292257810096804
+epoch:  15 loss: -36108.74 Pseudo FC_cor:  0.862130068407851 cos_sim:  0.449183696843389
 Epoch:  16
-epoch:  16 loss: -36559.4 Pseudo FC_cor:  0.9145656826383005 cos_sim:  0.42517612373512087
+epoch:  16 loss: -36559.367 Pseudo FC_cor:  0.9154738607827176 cos_sim:  0.4638998898397313
 Epoch:  17
-epoch:  17 loss: -36989.477 Pseudo FC_cor:  0.8667758703305638 cos_sim:  0.28787254530808914
+epoch:  17 loss: -36989.484 Pseudo FC_cor:  0.9260880978667154 cos_sim:  0.37143981535297405
 Epoch:  18
-epoch:  18 loss: -37400.867 Pseudo FC_cor:  0.9065559324656137 cos_sim:  0.454316158777435
+epoch:  18 loss: -37400.914 Pseudo FC_cor:  0.9480086553578702 cos_sim:  0.3863809194646733
 Epoch:  19
-epoch:  19 loss: -37795.258 Pseudo FC_cor:  0.8993811755612368 cos_sim:  0.3952901523960096
+epoch:  19 loss: -37795.25 Pseudo FC_cor:  0.9180884606556338 cos_sim:  0.41866609463864646
 </pre></div>
 </div>
 <p>Plots of loss over Training</p>
@@ -409,11 +426,11 @@ epoch:  19 loss: -37795.258 Pseudo FC_cor:  0.8993811755612368 cos_sim:  0.39529
 </div>
 <div class="section" id="model-evaluation-with-20-window-for-warmup">
 <h2>Model Evaluation (with 20 window for warmup)<a class="headerlink" href="#model-evaluation-with-20-window-for-warmup" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../API/run.html#whobpyt.run.Model_fitting.evaluate" title="whobpyt.run.Model_fitting.evaluate" class="sphx-glr-backref-module-whobpyt-run sphx-glr-backref-type-py-method"><span class="n">F</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRec</span> <span class="o">=</span> <span class="n">data_mean</span><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">TPperWindow</span><span class="p">,</span> <span class="n">base_window_num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../API/run.html#whobpyt.run.Model_fitting.evaluate" title="whobpyt.run.Model_fitting.evaluate" class="sphx-glr-backref-module-whobpyt-run sphx-glr-backref-type-py-method"><span class="n">F</span><span class="o">.</span><span class="n">evaluate</span></a><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRec</span> <span class="o">=</span> <a href="../API/datatypes.html#whobpyt.datatypes.Recording" title="whobpyt.datatypes.Recording" class="sphx-glr-backref-module-whobpyt-datatypes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_mean</span></a><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">TPperWindow</span><span class="p">,</span> <span class="n">base_window_num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  0.9155690490684188 cos_sim:  0.5195090098129305
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  0.8650171634807136 cos_sim:  0.38187701870688384
 </pre></div>
 </div>
 <p>Plot SC and fitted SC</p>
@@ -440,7 +457,7 @@ epoch:  19 loss: -37795.258 Pseudo FC_cor:  0.8993811755612368 cos_sim:  0.39529
 </pre></div>
 </div>
 <img alt="Test: sourced EEG, Test, empirical" class="sphx-glr-single-img" src="../_images/sphx_glr_eg004r__fitting_JR_example_004.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  45.839 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  23.815 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg004r-fitting-jr-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/96a042e39a4f43abe4e10ca8c12118f5/eg004r__fitting_JR_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg004r__fitting_JR_example.py</span></code></a></p>
@@ -460,6 +477,8 @@ epoch:  19 loss: -37795.258 Pseudo FC_cor:  0.8993811755612368 cos_sim:  0.39529
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eg005r__gpu_support.html" class="btn btn-neutral float-right" title="Evaluating CPU vs. GPU Performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="eg003r__fitting_rww_example.html" class="btn btn-neutral float-left" title="Fitting Wong_Wang model (HCP data)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

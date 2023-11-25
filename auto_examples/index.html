@@ -98,12 +98,19 @@
               <p class="caption"><span class="caption-text">About WhoBPyT</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/architecture.html">WhoBPyT Code Base Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#module-structure">Module structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#api-usage">API Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#system-model-and-biophysical-parameters">System, Model, and Biophysical Parameters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/architecture.html#rww-params">RWW_Params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/architecture.html#rww-layer">RWW_Layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/architecture.html">Code Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#simplified-usage-pseudo-code">Simplified Usage Pseudo Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#whole-brain-models">Whole Brain Models:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#objective-function-components">Objective Function Components:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#parameter-fitting-paradigms">Parameter Fitting Paradigms:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/architecture.html#package-expansions">Package Expansions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about_whobpyt/background.html">Background Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/background.html#neuroimaging-data">Neuroimaging Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about_whobpyt/background.html#system-model-and-biophysical-parameters">System, Model, and Biophysical Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/background.html#rwwexcinb">RWWExcInb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../about_whobpyt/background.html#jansen-rit">Jansen-Rit</a></li>
 </ul>
 </li>
 </ul>
@@ -112,22 +119,23 @@
 <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_in_colab.html">Running whobpyt in google colab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_in_codespaces.html">Running whobpyt in GitHub Codespaces</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../API/run.html">Run</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API/models.html">Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../API/optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/run.html">Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/visualization.html">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../API/datatypes.html">Data Types</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Examples</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="eg002r__multimodal_simulation.html">Fitting S_E Mean to 0.164 using default RWW Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#importage">Importage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-model-parameters">Defining Model Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#further-adjusting-parameters-for-network">Further Adjusting Parameters for Network</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-physically-possible-in-3d-space-structural-connectivity-matrix">Generating a physically possible (in 3D Space) Structural Connectivity Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-lead-field-matrix">Generating a Lead Field Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#generating-a-connectivity-matrix-for-channel-space">Generating a “Connectivity Matrix” for Channel Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#using-the-synthetic-cube-data-for-demo-purposes">Using the Synthetic Cube Data For Demo Purposes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-the-cnmm-model">Defining the CNMM Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#defining-the-objective-function">Defining the Objective Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg002r__multimodal_simulation.html#training-the-model">Training The Model</a></li>
@@ -145,6 +153,14 @@
 <li class="toctree-l2"><a class="reference internal" href="eg004r__fitting_JR_example.html#importage">Importage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg004r__fitting_JR_example.html#model-training">Model Training</a></li>
 <li class="toctree-l2"><a class="reference internal" href="eg004r__fitting_JR_example.html#model-evaluation-with-20-window-for-warmup">Model Evaluation (with 20 window for warmup)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg005r__gpu_support.html">Evaluating CPU vs. GPU Performance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#defining-the-data-and-parameters">Defining the Data and Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#training-a-cnmm-model-fixed-psd-with-batched-paradigm">Training a CNMM Model - Fixed PSD with Batched Paradigm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#training-a-cnmm-model-multimodal-objective-with-fng-fpg-paradigm">Training a CNMM Model - Multimodal Objective with FNG-FPG Paradigm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg005r__gpu_support.html#cnmm-verification-model">CNMM Verification Model</a></li>
 </ul>
 </li>
 </ul>
@@ -211,14 +227,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="all-notebook-examples">
-<span id="examples"></span><span id="sphx-glr-auto-examples"></span><h1><a class="toc-backref" href="#id5">All Notebook Examples</a><a class="headerlink" href="#all-notebook-examples" title="Permalink to this headline">¶</a></h1>
+<span id="examples"></span><span id="sphx-glr-auto-examples"></span><h1><a class="toc-backref" href="#id6">All Notebook Examples</a><a class="headerlink" href="#all-notebook-examples" title="Permalink to this headline">¶</a></h1>
 <p>This section has examples of different functionality available in the module.</p>
 <p>Examples are organized by topic, and can be explored in any order.</p>
 <div class="contents topic" id="contents-local">
 <p class="topic-title">Contents
    :local:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#all-notebook-examples" id="id5">All Notebook Examples</a></p></li>
+<li><p><a class="reference internal" href="#all-notebook-examples" id="id6">All Notebook Examples</a></p></li>
 </ul>
 </div>
 <div class="sphx-glr-thumbcontainer" tooltip="WhoBPyT Demo"><div class="figure align-default" id="id1">
@@ -242,6 +258,12 @@
 <div class="sphx-glr-thumbcontainer" tooltip="Fitting JR model (Tepit data)"><div class="figure align-default" id="id4">
 <img alt="Fitting JR model (Tepit data)" src="../_images/sphx_glr_eg004r__fitting_JR_example_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="eg004r__fitting_JR_example.html#sphx-glr-auto-examples-eg004r-fitting-jr-example-py"><span class="std std-ref">Fitting JR model (Tepit data)</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-thumbcontainer" tooltip="GPU Support has been added to mutiple classes in WhoBPyT. This code is for evaluating the diffe..."><div class="figure align-default" id="id5">
+<img alt="Evaluating CPU vs. GPU Performance" src="../_images/sphx_glr_eg005r__gpu_support_thumb.png" />
+<p class="caption"><span class="caption-text"><a class="reference internal" href="eg005r__gpu_support.html#sphx-glr-auto-examples-eg005r-gpu-support-py"><span class="std std-ref">Evaluating CPU vs. GPU Performance</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
