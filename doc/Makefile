@@ -1,68 +1,81 @@
-# Minimal makefile for Sphinx documentation
-
-# Note: when working on & tweaking one example, easiest + quickest to do single-file build with something like
+# Makefile for Sphinx documentation
 #
-# sphinx-build -D sphinx_gallery_conf.filename_pattern=cueing_behavioural_analysis_winter2019.py -b html -d _build/doctrees . _build/html
-#
-
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
+SPHINXOPTS    = -nWT --keep-going
 SPHINXBUILD   = sphinx-build
-#SPHINXPROJ    = fooof
-SPHINXPROJ    = whobpyt
-SOURCEDIR     = .
-BUILDDIR      = _build
+MPROF         = SG_STAMP_STARTS=true mprof run -E --python sphinx
 
-# Put it first so that "make" without argument is like "make help".
+# Internal variables.
+ALLSPHINXOPTS   = -d _build/doctrees $(SPHINXOPTS) .
+
+.PHONY: help clean html html-noplot html-pattern linkcheck linkcheck-grep doctest
+
+# make with no arguments will build the first target by default, i.e., build standalone HTML files
+first_target: html-noplot
+
 help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	@echo "Please use \`make <target>' where <target> is one of"
+	@echo "  html             to make standalone HTML files"
+	@echo "  html-memory      to make standalone HTML files while monitoring memory usage"
+	@echo "  html-pattern     to make standalone HTML files for a specific filename pattern"
+	@echo "  html-front       to make standalone HTML files with only the frontpage examples"
+	@echo "  html-noplot      to make standalone HTML files without plotting"
+	@echo "  clean            to clean HTML files"
+	@echo "  linkcheck        to check all external links for integrity"
+	@echo "  linkcheck-grep   to grep the linkcheck result"
+	@echo "  doctest          to run all doctests embedded in the documentation (if enabled)"
+	@echo "  view             to view the built HTML"
 
-.PHONY: help Makefile
-
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-# Custom cleaner that also removes the generated files from sphinx-gallery
 clean:
-	rm -rf $(BUILDDIR)/*
-	rm -rf auto_examples
-	rm -rf auto_tutorials
-	rm -rf auto_motivations
-	rm -rf generated
+	-rm -rf _build sg_execution_times.rst auto_examples auto_tutorials generated *.stc *.fif *.nii.gz
 
-# Check that builds site with nitpicky checking, and also does post-hoc link check
-check:
-	make SPHINXOPTS="-n" html
-	make linkcheck
+html:
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) _build/html
+	@echo
+	@echo "Build finished. The HTML pages are in _build/html."
 
-# Create the plots used in the FOOOF documentation
-plots:
-	python make_doc_plots.py
+html-memory:
+	$(MPROF) -b html $(ALLSPHINXOPTS) _build/html
+	@echo
+	@echo "Build finished. The HTML pages are in _build/html."
 
-# Build the html site, and push it to gh-pages branch of repo to deploy
-install:
-	# Clean out existing build
-	make clean
-	# Clone, specifically, the gh-pages branch, putting it into '_build/gh_pages/'
-	#   --no-checkout just fetches the root folder without content
-	#   --depth 1 is a speed optimization since we don't need the history prior to the last commit
-	#   -b gh-pages fetches only the branch for the gh-pages
-	#git clone -b gh-pages --single-branch --no-checkout --depth 1 https://github.com/fooof-tools/fooof _build/gh_pages
-	git clone -b gh-pages --single-branch --no-checkout --depth 1 git@github.com:griffithslab/whobpyt _build/gh_pages
-	# A .nojekyll file tells Github pages to bypass Jekyll processing
-	touch _build/gh_pages/.nojekyll
-	# A .nojekyll file tells Github pages to bypass Jekyll processing
-	touch _build/gh_pages/.nojekyll
-	# Build the sphinx site
-	make html
-	# Copy site into the gh-pages branch folder, then push to Github to deploy
-	cd _build/ && \
-	cp -r html/* gh_pages && \
-	cd gh_pages && \
-	git add * && \
-	git add .nojekyll && \
-	git commit -a -m 'Make install' && \
-	git push
+html-pattern:
+	$(SPHINXBUILD) -D sphinx_gallery_conf.filename_pattern=$(PATTERN) -D sphinx_gallery_conf.run_stale_examples=True -b html $(ALLSPHINXOPTS) _build/html
+	@echo
+	@echo "Build finished. The HTML pages are in _build/html"
+
+html-pattern-memory:
+	$(MPROF) -D sphinx_gallery_conf.filename_pattern=$(PATTERN) -D sphinx_gallery_conf.run_stale_examples=True -b html $(ALLSPHINXOPTS) _build/html
+	@echo
+	@echo "Build finished. The HTML pages are in _build/html"
+
+html-noplot:
+	$(SPHINXBUILD) -D plot_gallery=0 -b html $(ALLSPHINXOPTS) _build/html
+	@echo
+	@echo "Build finished. The HTML pages are in _build/html."
+
+html-front:
+	@PATTERN="\(30_mne_dspm_loreta.py\|50_decoding.py\|30_strf.py\|20_cluster_1samp_spatiotemporal.py\|20_visualize_evoked.py\)" make html-pattern
+
+# Aliases for old methods
+html_dev-pattern-memory: html-pattern-memory
+html_dev-pattern: html-pattern
+html_dev-noplot: html-noplot
+html_dev-front: html-front
+
+linkcheck:
+	@$(SPHINXBUILD) -b linkcheck -D nitpicky=0 -D plot_gallery=0 -D exclude_patterns="cited.rst,whats_new.rst,configure_git.rst" -d _build/doctrees . _build/linkcheck
+
+linkcheck-grep:
+	@! grep -h "^.*:.*: \[\(\(local\)\|\(broken\)\)\]" _build/linkcheck/output.txt
+
+doctest:
+	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) _build/doctest
+	@echo "Testing of doctests in the sources finished, look at the " \
+	      "results in _build/doctest/output.txt."
+
+view:
+	@python -c "import webbrowser; webbrowser.open_new_tab('file://$(PWD)/_build/html/sg_execution_times.html')"
+
+show: view

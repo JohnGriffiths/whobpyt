@@ -1,41 +1,40 @@
-Welcome to WhoBPyT documentation!
-===================================
+:html_theme.sidebar_secondary.remove:
 
-.. include:: ../README.md
+.. title:: MNE
 
-.. toctree::
-   :maxdepth: 1
-   :caption: About WhoBPyT
-   :glob:
-      
-   about_whobpyt/overview
-   about_whobpyt/architecture
-   about_whobpyt/background
+.. The page title must be in rST for it to show in next/prev page buttons.
+   Therefore we add a special style rule to only this page that hides h1 tags
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Getting Started
-   :glob:
- 
-   getting_started/installation
-   getting_started/running_in_colab
-   getting_started/running_in_codespaces
+.. raw:: html
 
-.. toctree::
-   :maxdepth: 2
-   :caption: API
-   :glob:
+    <style type="text/css">h1 {display:none;}</style>
 
-   API/models
-   API/optimization
-   API/run
-   API/visualization
-   API/datatypes
+WhoBPyT Homepage
+===================
+
+.. LOGO
+
+.. image:: _static/whobpyt_logo_v1.png
+   :alt: WhoBPyT
+   :class: logo, mainlogo, only-light
+   :align: center
+
+.. image:: _static/mne_logo_dark.svg
+   :alt: MNE-Python
+   :class: logo, mainlogo, only-dark
+   :align: center
+
+.. rst-class:: h4 text-center font-weight-light my-4
+
+   Whole-Brain Modeling in PyTorch
+
+.. frontpage gallery is added by a conditional in _templates/layout.html
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Examples
-   :glob:
- 
-   auto_examples/eg__replicate_Momi2023
-   
+   :hidden:
+
+   Install <install/index>
+   Documentation <documentation/index>
+   API Reference <api/python_reference>
+   Get help <help/index>
+   Development <development/index>

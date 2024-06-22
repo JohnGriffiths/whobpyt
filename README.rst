@@ -1,36 +1,170 @@
-WhoBPyT - Whole-Brain Modelling in PyTorch
-=================
-(`Or There and Back Again <https://en.wikipedia.org/wiki/The_Hobbit>`_)
+.. -*- mode: rst -*-
+
+|MNE|
+
+MNE-Python
+==========
+
+MNE-Python is an open-source Python package for exploring,
+visualizing, and analyzing human neurophysiological data such as MEG, EEG, sEEG,
+ECoG, and more. It includes modules for data input/output, preprocessing,
+visualization, source estimation, time-frequency analysis, connectivity analysis,
+machine learning, statistics, and more.
 
 
-Summary
--------
+Documentation
+^^^^^^^^^^^^^
 
-``whobpyt`` (pronounce as 'hobbit') is a Python library for PyTorch-based whole-brain modeling in Python.
-
-Please note that the code here is still very preliminary, under active
-development, and subject to substantial change.
-
-
-Rationale
----------
-
-As open source and open science advocates, we have elected to pursue a
-‘fully open’ and public development approach here. A chief motivation
-behind this is to bring in contributors and collaborators who are
-interested in working together to move things forward more quickly that
-any of us would be able to individually. So, if you are interested in
-getting involved, don’t hesitate to reach out to John ( j dot
-davidgriffiths at gmail dot com ), or just introduce yourself via an
-issue.
-
-Structure
----------
-
-There are three main components to the code base:
+`Documentation`_ for MNE-Python encompasses installation instructions, tutorials,
+and examples for a wide variety of topics, contributing guidelines, and an API
+reference.
 
 
-|  ``doc`` folder - Documentation pages text and organization
-|  ``whobpyt`` folder - The importable python library
-|  ``examples`` folder - Example usage scripts that become the gallery
-  items in the CI-managed sphinx gallery site
+Forum
+^^^^^^
+
+The `user forum`_ is the best place to ask questions about MNE-Python usage or
+the contribution process. The forum also features job opportunities and other
+announcements.
+
+If you find a bug or have an idea for a new feature that should be added to
+MNE-Python, please use the
+`issue tracker <https://github.com/mne-tools/mne-python/issues/new/choose>`__ of
+our GitHub repository.
+
+
+Installation
+^^^^^^^^^^^^
+
+To install the latest stable version of MNE-Python with minimal dependencies
+only, use pip_ in a terminal:
+
+.. code-block:: console
+
+    $ pip install --upgrade mne
+
+The current MNE-Python release requires Python 3.9 or higher. MNE-Python 0.17
+was the last release to support Python 2.7.
+
+For more complete instructions, including our standalone installers and more
+advanced installation methods, please refer to the `installation guide`_.
+
+
+Get the development version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To install the latest development version of MNE-Python using pip_, open a
+terminal and type:
+
+.. code-block:: console
+
+    $ pip install --upgrade git+https://github.com/mne-tools/mne-python@main
+
+To clone the repository with `git <https://git-scm.com/>`__, open a terminal
+and type:
+
+.. code-block:: console
+
+    $ git clone https://github.com/mne-tools/mne-python.git
+
+
+Dependencies
+^^^^^^^^^^^^
+
+The minimum required dependencies to run MNE-Python are:
+
+- `Python <https://www.python.org>`__ ≥ 3.9
+- `NumPy <https://numpy.org>`__ ≥ 1.23
+- `SciPy <https://scipy.org>`__ ≥ 1.9
+- `Matplotlib <https://matplotlib.org>`__ ≥ 3.6
+- `Pooch <https://www.fatiando.org/pooch/latest/>`__ ≥ 1.5
+- `tqdm <https://tqdm.github.io>`__
+- `Jinja2 <https://palletsprojects.com/p/jinja/>`__
+- `decorator <https://github.com/micheles/decorator>`__
+- `lazy_loader <https://pypi.org/project/lazy_loader/>`__
+
+For full functionality, some functions require:
+
+- `scikit-learn <https://scikit-learn.org/stable/>`__ ≥ 1.1
+- `Joblib <https://joblib.readthedocs.io/en/latest/index.html>`__ ≥ 0.15 (for parallelization)
+- `mne-qt-browser <https://github.com/mne-tools/mne-qt-browser>`__ ≥ 0.5 (for fast raw data visualization)
+- `Qt <https://www.qt.io>`__ ≥ 5.15 via one of the following bindings (for fast raw data visualization and interactive 3D visualization):
+
+  - `PyQt6 <https://www.riverbankcomputing.com/software/pyqt/>`__ ≥ 6.0
+  - `PySide6 <https://doc.qt.io/qtforpython-6/>`__ ≥ 6.0
+  - `PyQt5 <https://www.riverbankcomputing.com/software/pyqt/>`__ ≥ 5.15
+  - `PySide2 <https://doc.qt.io/qtforpython-6/gettingstarted/porting_from2.html>`__ ≥ 5.15
+
+- `Numba <https://numba.pydata.org>`__ ≥ 0.54.0
+- `NiBabel <https://nipy.org/nibabel/>`__ ≥ 3.2.1
+- `OpenMEEG <https://openmeeg.github.io>`__ ≥ 2.5.6
+- `pandas <https://pandas.pydata.org>`__ ≥ 1.3.2
+- `Picard <https://pierreablin.github.io/picard/>`__ ≥ 0.3
+- `CuPy <https://cupy.dev>`__ ≥ 9.0.0 (for NVIDIA CUDA acceleration)
+- `DIPY <https://dipy.org>`__ ≥ 1.4.0
+- `imageio <https://imageio.readthedocs.io/en/stable/>`__ ≥ 2.8.0
+- `PyVista <https://pyvista.org>`__ ≥ 0.32 (for 3D visualization)
+- `PyVistaQt <https://qtdocs.pyvista.org>`__ ≥ 0.4 (for 3D visualization)
+- `mffpy <https://github.com/BEL-Public/mffpy>`__ ≥ 0.5.7
+- `h5py <https://www.h5py.org>`__
+- `h5io <https://github.com/h5io/h5io>`__
+- `pymatreader <https://pymatreader.readthedocs.io/en/latest/>`__
+
+
+Contributing
+^^^^^^^^^^^^
+
+Please see the `contributing guidelines <https://mne.tools/dev/development/contributing.html>`__ on our documentation website.
+
+
+About
+^^^^^
+
++---------+------------+----------------+
+| CI      | |Codecov|  | |Bandit|       |
++---------+------------+----------------+
+| Package | |PyPI|     | |conda-forge|  |
++---------+------------+----------------+
+| Docs    | |Docs|     | |Discourse|    |
++---------+------------+----------------+
+| Meta    | |Zenodo|   | |OpenSSF|      |
++---------+------------+----------------+
+
+
+License
+^^^^^^^
+
+MNE-Python is licensed under the BSD-3-Clause license.
+
+
+.. _Documentation: https://mne.tools/dev/
+.. _user forum: https://mne.discourse.group
+.. _installation guide: https://mne.tools/dev/install/index.html
+.. _pip: https://pip.pypa.io/en/stable/
+
+.. |PyPI| image:: https://img.shields.io/pypi/dm/mne.svg?label=PyPI
+   :target: https://pypi.org/project/mne/
+
+.. |conda-forge| image:: https://img.shields.io/conda/dn/conda-forge/mne.svg?label=Conda
+   :target: https://anaconda.org/conda-forge/mne
+
+.. |Docs| image:: https://img.shields.io/badge/Docs-online-green?label=Documentation
+   :target: https://mne.tools/dev/
+
+.. |Zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.592483.svg
+   :target: https://doi.org/10.5281/zenodo.592483
+
+.. |Discourse| image:: https://img.shields.io/discourse/status?label=Forum&server=https%3A%2F%2Fmne.discourse.group%2F
+   :target: https://mne.discourse.group/
+
+.. |Codecov| image:: https://img.shields.io/codecov/c/github/mne-tools/mne-python?label=Coverage
+   :target: https://codecov.io/gh/mne-tools/mne-python
+
+.. |Bandit| image:: https://img.shields.io/badge/Security-Bandit-yellow.svg
+   :target: https://github.com/PyCQA/bandit
+
+.. |OpenSSF| image:: https://www.bestpractices.dev/projects/7783/badge
+   :target: https://www.bestpractices.dev/projects/7783
+
+.. |MNE| image:: https://mne.tools/dev/_static/mne_logo_gray.svg
+   :target: https://mne.tools/dev/
