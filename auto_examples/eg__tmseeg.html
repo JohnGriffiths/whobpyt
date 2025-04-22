@@ -55,6 +55,7 @@
     <script src="../_static/debug.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Replicating Momi Et Al. ELife 2023" href="eg__momi2023.html" />
     <link rel="prev" title="Data Types" href="../API/datatypes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -224,6 +225,13 @@
   </a>
 </li>
 
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="eg__momi2023.html">
+    Replicating Momi Et Al. ELife 2023
+  </a>
+</li>
+
                 </ul>
             </li>
             
@@ -380,6 +388,13 @@
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
     Modelling TMS-EEG evoked responses
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="eg__momi2023.html">
+    Replicating Momi Et Al. ELife 2023
   </a>
 </li>
 
@@ -656,16 +671,16 @@ Name: ROI Name, dtype: object
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch:  0
-epoch:  0 loss: 2.393986 Pseudo FC_cor:  0.0052418927838773525 cos_sim:  0.059559228094633584
+epoch:  0 loss: 3.2314904 Pseudo FC_cor:  0.06038828558791771 cos_sim:  0.07495599998750561
 Epoch:  1
-epoch:  1 loss: 4.2702837 Pseudo FC_cor:  -0.02099821026253704 cos_sim:  0.03686014665899375
+epoch:  1 loss: 3.317236 Pseudo FC_cor:  0.043983154000785805 cos_sim:  -0.10516250884558277
 </pre></div>
 </div>
 <p>quick test run with 2 epochs</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRec</span> <span class="o">=</span> <span class="n">data_mean</span><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">base_window_num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  -0.024325302083731327 cos_sim:  -0.011450739736224626
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  0.046147737459535855 cos_sim:  0.034061166226875564
 </pre></div>
 </div>
 <p>load in a previously completed model fitting results object</p>
@@ -674,7 +689,7 @@ epoch:  1 loss: 4.2702837 Pseudo FC_cor:  -0.02099821026253704 cos_sim:  0.03686
 <span class="n">F</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">u</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">empRec</span> <span class="o">=</span> <span class="n">data_mean</span><span class="p">,</span> <span class="n">TPperWindow</span> <span class="o">=</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">base_window_num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  0.4453350913108511 cos_sim:  0.38419668883964103
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>FC_cor:  0.5028185100537665 cos_sim:  0.3988660637604228
 </pre></div>
 </div>
 <p>Plot the original and simulated EEG data</p>
@@ -715,7 +730,7 @@ to capture key features of the EEG signal.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <p>Momi, D., Wang, Z., Griffiths, J.D. (2023). “TMS-evoked responses are driven by recurrent large-scale network dynamics.” eLife, 10.7554/eLife.83232. <a class="reference external" href="https://doi.org/10.7554/eLife.83232">https://doi.org/10.7554/eLife.83232</a></p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 20.985 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 10.893 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-tmseeg-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/adddac552e627b5207e7ec47e04b862e/eg__tmseeg.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__tmseeg.ipynb</span></code></a></p>
@@ -749,6 +764,15 @@ to capture key features of the EEG signal.</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Data Types</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="eg__momi2023.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Replicating Momi Et Al. ELife 2023</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
