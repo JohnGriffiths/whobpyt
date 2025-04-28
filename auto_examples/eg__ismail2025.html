@@ -638,36 +638,24 @@ inhibition to drive laterality. This work provides a developmental framework for
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished fitting model to noise trials&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[-0.1443,  0.0432, -0.3205,  ..., -0.5499,  0.3023,  0.1376],
-        [-0.0688,  0.6004, -0.1922,  ..., -1.1679,  0.8466,  0.1239],
-        [-0.0145,  0.9310, -0.1187,  ..., -1.4341,  1.1854,  0.0921],
-        ...,
-        [ 0.3194,  0.0801,  0.5213,  ..., -0.2474, -0.3087, -0.3342],
-        [ 0.0872, -0.0771,  0.2334,  ..., -0.1677, -0.1168, -0.0527],
-        [ 0.6517,  0.8026,  0.7241,  ..., -0.5340, -0.9514, -0.7784]],
-       requires_grad=True)
-epoch:  0 -225658.83
-epoch:  0 0.3090314262635837 cos_sim:  -0.018269124928037398
-epoch:  1 -226328.61
-epoch:  1 0.3762871951045663 cos_sim:  0.06443637933973673
-0.40359820258599727 cos_sim:  0.1313336288391577
-Finished fitting model to verb trials
-Parameter containing:
-tensor([[-0.1443,  0.0432, -0.3205,  ..., -0.5499,  0.3023,  0.1376],
-        [-0.0688,  0.6004, -0.1922,  ..., -1.1679,  0.8466,  0.1239],
-        [-0.0145,  0.9310, -0.1187,  ..., -1.4341,  1.1854,  0.0921],
-        ...,
-        [ 0.3194,  0.0801,  0.5213,  ..., -0.2474, -0.3087, -0.3342],
-        [ 0.0872, -0.0771,  0.2334,  ..., -0.1677, -0.1168, -0.0527],
-        [ 0.6517,  0.8026,  0.7241,  ..., -0.5340, -0.9514, -0.7784]],
-       requires_grad=True)
-epoch:  0 -225652.5
-epoch:  0 0.2464006355960384 cos_sim:  -0.11521845175429729
-epoch:  1 -226321.06
-epoch:  1 0.27798379741465545 cos_sim:  -0.05900167080386734
-0.255843721867803 cos_sim:  -0.023674358083834623
-Finished fitting model to noise trials
+<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/home/runner/work/whobpyt/whobpyt/examples/eg__ismail2025.py&quot;</span>, line <span class="m">166</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="n">noise_F</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="n">stim_input</span><span class="p">)</span>
+  File <span class="nb">&quot;/home/runner/work/whobpyt/whobpyt/whobpyt/depr/ismail2025/jansen_rit.py&quot;</span>, line <span class="m">1316</span>, in <span class="n">train</span>
+<span class="w">    </span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">cosine_similarity</span><span class="p">(</span><span class="n">ts_sim</span><span class="p">,</span> <span class="n">ts_emp</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/utils/_param_validation.py&quot;</span>, line <span class="m">216</span>, in <span class="n">wrapper</span>
+<span class="w">    </span><span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/metrics/pairwise.py&quot;</span>, line <span class="m">1741</span>, in <span class="n">cosine_similarity</span>
+<span class="w">    </span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">check_pairwise_arrays</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/metrics/pairwise.py&quot;</span>, line <span class="m">200</span>, in <span class="n">check_pairwise_arrays</span>
+<span class="w">    </span><span class="n">X</span> <span class="o">=</span> <span class="n">check_array</span><span class="p">(</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/utils/validation.py&quot;</span>, line <span class="m">1107</span>, in <span class="n">check_array</span>
+<span class="w">    </span><span class="n">_assert_all_finite</span><span class="p">(</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/utils/validation.py&quot;</span>, line <span class="m">120</span>, in <span class="n">_assert_all_finite</span>
+<span class="w">    </span><span class="n">_assert_all_finite_element_wise</span><span class="p">(</span>
+  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/sklearn/utils/validation.py&quot;</span>, line <span class="m">169</span>, in <span class="n">_assert_all_finite_element_wise</span>
+<span class="w">    </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg_err</span><span class="p">)</span>
+<span class="gr">ValueError</span>: <span class="n">Input contains NaN.</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -697,12 +685,6 @@ Finished fitting model to noise trials
 <span class="c1"># Plot simulated noise trial</span>
 <span class="n">sim_noise_evoked</span><span class="o">.</span><span class="n">plot_joint</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Simulated Noise&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="p">[</span><span class="mf">0.07</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1585</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/whobpyt/whobpyt/examples/eg__ismail2025.py&quot;</span>, line <span class="m">181</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;info.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;data_dir&#39; is not defined</span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -830,7 +812,7 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 15.974 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 2.769 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2025-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/fa46508a782571b79143e92910a4f1a8/eg__ismail2025.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__ismail2025.ipynb</span></code></a></p>
