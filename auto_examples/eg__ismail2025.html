@@ -639,34 +639,34 @@ inhibition to drive laterality. This work provides a developmental framework for
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[-0.1280,  0.0614, -0.3376,  ..., -0.5287,  0.3367,  0.1246],
-        [-0.0541,  0.6155, -0.2176,  ..., -1.1724,  0.8642,  0.1331],
-        [ 0.0147,  0.9108, -0.1181,  ..., -1.3996,  1.1882,  0.1088],
+tensor([[-0.1287,  0.0564, -0.3402,  ..., -0.5368,  0.3352,  0.1351],
+        [-0.0344,  0.5953, -0.1952,  ..., -1.1725,  0.8517,  0.1316],
+        [-0.0182,  0.9201, -0.1133,  ..., -1.4112,  1.1798,  0.1166],
         ...,
-        [ 0.3163,  0.1063,  0.5291,  ..., -0.2445, -0.3077, -0.3292],
-        [ 0.0813, -0.0690,  0.2559,  ..., -0.1339, -0.1398, -0.0436],
-        [ 0.6569,  0.8266,  0.7344,  ..., -0.5026, -0.9457, -0.8134]],
+        [ 0.3035,  0.0822,  0.5097,  ..., -0.2392, -0.3333, -0.3333],
+        [ 0.0664, -0.0503,  0.2331,  ..., -0.1406, -0.1104, -0.0425],
+        [ 0.6610,  0.8206,  0.7384,  ..., -0.5051, -0.9289, -0.8156]],
        requires_grad=True)
-epoch:  0 -225607.3
-epoch:  0 0.28574199471989703 cos_sim:  -0.06800608205397853
-epoch:  1 -226267.84
-epoch:  1 0.35635107656935683 cos_sim:  0.025508078415555753
-0.40972674201336706 cos_sim:  0.10157387729435652
+epoch:  0 -225526.5
+epoch:  0 0.3002124028223527 cos_sim:  -0.03654552056979667
+epoch:  1 -226189.52
+epoch:  1 0.3757363140642094 cos_sim:  0.05529835105669534
+0.3954623458967942 cos_sim:  0.08941756515292022
 Finished fitting model to verb trials
 Parameter containing:
-tensor([[-0.1280,  0.0614, -0.3376,  ..., -0.5287,  0.3367,  0.1246],
-        [-0.0541,  0.6155, -0.2176,  ..., -1.1724,  0.8642,  0.1331],
-        [ 0.0147,  0.9108, -0.1181,  ..., -1.3996,  1.1882,  0.1088],
+tensor([[-0.1287,  0.0564, -0.3402,  ..., -0.5368,  0.3352,  0.1351],
+        [-0.0344,  0.5953, -0.1952,  ..., -1.1725,  0.8517,  0.1316],
+        [-0.0182,  0.9201, -0.1133,  ..., -1.4112,  1.1798,  0.1166],
         ...,
-        [ 0.3163,  0.1063,  0.5291,  ..., -0.2445, -0.3077, -0.3292],
-        [ 0.0813, -0.0690,  0.2559,  ..., -0.1339, -0.1398, -0.0436],
-        [ 0.6569,  0.8266,  0.7344,  ..., -0.5026, -0.9457, -0.8134]],
+        [ 0.3035,  0.0822,  0.5097,  ..., -0.2392, -0.3333, -0.3333],
+        [ 0.0664, -0.0503,  0.2331,  ..., -0.1406, -0.1104, -0.0425],
+        [ 0.6610,  0.8206,  0.7384,  ..., -0.5051, -0.9289, -0.8156]],
        requires_grad=True)
-epoch:  0 -225611.14
-epoch:  0 0.24970270338545533 cos_sim:  -0.10132210848408997
-epoch:  1 -226281.39
-epoch:  1 0.26682536700861703 cos_sim:  -0.06966718973402167
-0.25210805736796565 cos_sim:  -0.00717691899500129
+epoch:  0 -225522.72
+epoch:  0 0.22148928399708778 cos_sim:  -0.12798037434730353
+epoch:  1 -226182.53
+epoch:  1 0.2831431815964532 cos_sim:  -0.08271976929387208
+0.28452050826989167 cos_sim:  -0.028270852089860465
 Finished fitting model to noise trials
 </pre></div>
 </div>
@@ -678,9 +678,9 @@ Finished fitting model to noise trials
 <p>we will use the simulations from the fully trained model in the downloaded directory</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">verb_meg_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;eg__ismail2025_data&#39;</span><span class="p">,</span> <span class="s1">&#39;sim_verb_sensor.npy&#39;</span><span class="p">))</span>
 <span class="n">noise_meg_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;eg__ismail2025_data&#39;</span><span class="p">,</span> <span class="s1">&#39;sim_noise_sensor.npy&#39;</span><span class="p">))</span>
-<span class="n">ev_samp_file</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">read_epochs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;eg__ismail2025_data&#39;</span><span class="p">,</span> <span class="s1">&#39;evoked_info.fif&#39;</span><span class="p">),</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">ev_samp_file</span><span class="o">.</span><span class="n">drop_channels</span><span class="p">([</span><span class="s1">&#39;MLC12-3405&#39;</span><span class="p">])</span> <span class="c1">#we removed this channel in our empirical data</span>
-<span class="n">info</span> <span class="o">=</span> <span class="n">ev_samp_file</span><span class="o">.</span><span class="n">info</span>  <span class="c1"># Use existing MEG channel structure to use MNE format</span>
+<span class="c1"># Use existing MEG channel structure to use MNE format</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;info.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="c1"># Convert empirical data to MNE format</span>
 <span class="n">emp_verb_evoked</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">EvokedArray</span><span class="p">(</span><span class="n">verb_meg</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:],</span> <span class="n">info</span><span class="p">,</span> <span class="n">tmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">emp_noise_evoked</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">EvokedArray</span><span class="p">(</span><span class="n">noise_meg</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:],</span> <span class="n">info</span><span class="p">,</span> <span class="n">tmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">)</span>
@@ -700,18 +700,9 @@ Finished fitting model to noise trials
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/whobpyt/whobpyt/examples/eg__ismail2025.py&quot;</span>, line <span class="m">180</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="n">ev_samp_file</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">read_epochs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;eg__ismail2025_data&#39;</span><span class="p">,</span> <span class="s1">&#39;evoked_info.fif&#39;</span><span class="p">),</span> <span class="n">preload</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-  File <span class="nb">&quot;&lt;decorator-gen-232&gt;&quot;</span>, line <span class="m">12</span>, in <span class="n">read_epochs</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/mne/epochs.py&quot;</span>, line <span class="m">4213</span>, in <span class="n">read_epochs</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">EpochsFIF</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">proj</span><span class="p">,</span> <span class="n">preload</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
-  File <span class="nb">&quot;&lt;decorator-gen-233&gt;&quot;</span>, line <span class="m">12</span>, in <span class="n">__init__</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/mne/epochs.py&quot;</span>, line <span class="m">4262</span>, in <span class="n">__init__</span>
-<span class="w">    </span><span class="n">fname</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">_check_fname</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">must_exist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="s2">&quot;read&quot;</span><span class="p">))</span>
-  File <span class="nb">&quot;&lt;decorator-gen-0&gt;&quot;</span>, line <span class="m">12</span>, in <span class="n">_check_fname</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.9.22/x64/lib/python3.9/site-packages/mne/utils/check.py&quot;</span>, line <span class="m">274</span>, in <span class="n">_check_fname</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> does not exist: &quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="gr">FileNotFoundError</span>: <span class="n">File does not exist: &quot;/home/runner/work/whobpyt/whobpyt/examples/eg__ismail2025_data/evoked_info.fif&quot;</span>
+  File <span class="nb">&quot;/home/runner/work/whobpyt/whobpyt/examples/eg__ismail2025.py&quot;</span>, line <span class="m">181</span>, in <span class="n">&lt;module&gt;</span>
+<span class="w">    </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;info.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;data_dir&#39; is not defined</span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -726,27 +717,44 @@ Finished fitting model to noise trials
 <div></div></blockquote>
 <p>We are interested in capturing changes in beta power between verb and noise trials observed from 700-1200 ms
 Create longer empty array with same shape and fill with the first 500 ms</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">sim_1500_verb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">verb_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1500</span><span class="p">))</span>
-<span class="n">sim_1500_verb</span><span class="p">[:,:</span><span class="n">verb_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">verb_meg</span><span class="o">*</span><span class="mf">1.0e13</span>
-<span class="n">time_dim</span> <span class="o">=</span> <span class="n">verb_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">sim_1500_verb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">verb_eeg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1500</span><span class="p">))</span>
+<span class="n">sim_1500_verb</span><span class="p">[:,:</span><span class="n">verb_eeg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">verb_eeg</span><span class="o">*</span><span class="mf">1.0e13</span>
+<span class="n">node_size</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">output_size</span> <span class="o">=</span> <span class="n">sim_1500_verb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">input_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">num_epoches</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">state_size</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">base_batch_num</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">time_dim</span> <span class="o">=</span> <span class="n">sim_1500_verb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">hidden_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tr</span><span class="o">/</span><span class="n">step_size</span><span class="p">)</span>
-<span class="n">data_verb</span> <span class="o">=</span> <span class="n">dataloader</span><span class="p">((</span><span class="n">sim_1500_verb</span><span class="o">-</span><span class="n">sim_1500_verb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">num_epoches</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-<span class="n">verb_F</span><span class="o">.</span><span class="n">ts</span> <span class="o">=</span> <span class="n">data_verb</span>
-<span class="c1">#keep stimulation the same</span>
-<span class="c1">#Stimulate the auditory cortices defined by roi in ki0</span>
-<span class="n">stim_input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">node_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">time_dim</span><span class="p">))</span>
-<span class="n">stim_input</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">140</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="n">output_test</span> <span class="o">=</span> <span class="n">verb_F</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">base_batch_num</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">stim_input</span><span class="p">)</span>
-<span class="c1">#extract simulated sensor and source data for verb trials</span>
+<span class="n">data_mean</span> <span class="o">=</span> <span class="n">dataloader</span><span class="p">((</span><span class="n">sim_1500_verb</span><span class="o">-</span><span class="n">sim_1500_verb</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">num_epoches</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+<span class="n">verb_F</span><span class="o">.</span><span class="n">ts</span> <span class="o">=</span> <span class="n">data_mean</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">node_size</span><span class="p">,</span><span class="n">hidden_size</span><span class="p">,</span><span class="n">time_dim</span><span class="p">))</span>
+<span class="n">u</span><span class="p">[:,:,</span><span class="mi">100</span><span class="p">:</span><span class="mi">140</span><span class="p">]</span><span class="o">=</span> <span class="mi">5000</span>
+<span class="n">output_test</span> <span class="o">=</span> <span class="n">verb_F</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">base_batch_num</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
+<span class="c1">#extract simulated sensor and source data for noise trials</span>
 <span class="n">sim_source_verb</span> <span class="o">=</span> <span class="n">verb_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">P_test</span>
 <span class="n">sim_sensor_verb</span> <span class="o">=</span> <span class="n">verb_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">eeg_test</span>
+
 <span class="c1">#repeat for noise trials</span>
-<span class="n">sim_1500_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">noise_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1500</span><span class="p">))</span>
-<span class="n">sim_1500_noise</span><span class="p">[:,:</span><span class="n">noise_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">noise_meg</span><span class="o">*</span><span class="mf">1.0e13</span>
-<span class="n">time_dim</span> <span class="o">=</span> <span class="n">noise_meg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sim_1500_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">noise_eeg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1500</span><span class="p">))</span>
+<span class="n">sim_1500_noise</span><span class="p">[:,:</span><span class="n">noise_eeg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">noise_eeg</span><span class="o">*</span><span class="mf">1.0e13</span>
+<span class="n">node_size</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">output_size</span> <span class="o">=</span> <span class="n">sim_1500_noise</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">input_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">num_epoches</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">state_size</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">base_batch_num</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">time_dim</span> <span class="o">=</span> <span class="n">sim_1500_noise</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">hidden_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tr</span><span class="o">/</span><span class="n">step_size</span><span class="p">)</span>
-<span class="n">data_noise</span> <span class="o">=</span> <span class="n">dataloader</span><span class="p">((</span><span class="n">sim_1500_noise</span><span class="o">-</span><span class="n">sim_1500_noise</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">num_epoches</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-<span class="n">noise_F</span><span class="o">.</span><span class="n">ts</span> <span class="o">=</span> <span class="n">data_noise</span>
+<span class="n">data_mean</span> <span class="o">=</span> <span class="n">dataloader</span><span class="p">((</span><span class="n">sim_1500_noise</span><span class="o">-</span><span class="n">sim_1500_noise</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">num_epoches</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+<span class="n">noise_F</span><span class="o">.</span><span class="n">ts</span> <span class="o">=</span> <span class="n">data_mean</span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">node_size</span><span class="p">,</span><span class="n">hidden_size</span><span class="p">,</span><span class="n">time_dim</span><span class="p">))</span>
 <span class="n">u</span><span class="p">[:,:,</span><span class="mi">100</span><span class="p">:</span><span class="mi">140</span><span class="p">]</span><span class="o">=</span> <span class="mi">5000</span>
 <span class="n">output_test</span> <span class="o">=</span> <span class="n">noise_F</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">base_batch_num</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">)</span>
@@ -822,7 +830,7 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 19.334 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 27.392 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2025-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/fa46508a782571b79143e92910a4f1a8/eg__ismail2025.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__ismail2025.ipynb</span></code></a></p>
