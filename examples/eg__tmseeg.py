@@ -1,4 +1,18 @@
 """
+**Modelling TMS-EEG Evoked Responses**
+===============================================================
+
+Minimal demo of TEP (TMS-EEG evoked potential) modeling approach
+
+.. _ex-egtmseeg:
+"""
+# sphinx_gallery_thumbnail_path = "_static/momi2023__Figure_7.png"
+#
+
+# %%
+
+
+"""
 .. _ex-tmseeg:
 
 ========================================================

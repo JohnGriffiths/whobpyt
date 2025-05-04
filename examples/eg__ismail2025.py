@@ -1,10 +1,13 @@
 """
+**Ismail et al. 2025**: MEG, Language, Development
+===============================================
 
-==============================================================
-Replicating Ismail et al. 2025
-==============================================================
+A study of the interhemispheric inhibitory circuits and their role in language lateralization from childhoon to adolescence.
+Includes a novel approach to modelling late-occurring induced responses, and a novel 'virtual transplant method' for comparing groups. 
+
 """
-# sphinx_gallery_thumbnail_number = 1
+#
+# sphinx_gallery_thumbnail_path = "_static/Ismail2025_SummaryFigure.png"
 # %% [markdown]
 # 0. Overview
 # ---------------------------------------------------

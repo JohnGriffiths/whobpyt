@@ -1,25 +1,34 @@
-# -*- coding: utf-8 -*-
-"""momi_2025_example.ipynb
-
-Original file is located at
-    https://colab.research.google.com/drive/1dD_XqTVleoW8VgH_T_y5SrFxBNOu_ZRz
 """
+**Momi et al. 2025**: iES, EEG, Evoked Responses, Excitability Gradients
+=========================================================================
 
-# Prepare for data download from Kaggle
-mkdir -p ~/.kaggle
-mv kaggle.json ~/.kaggle/
-chmod 600 ~/.kaggle/kaggle.json
+Role of recurrent feedback and location in hierarchy in generation of iES-evoked responses
+
+.. _ex-momi2025:
+"""
+# sphinx_gallery_thumbnail_path = "_static/momi2025__SummaryFigure.png"
+#
+
+# %%
+# 0. Overview
+# ---------------------------------------------------
+#
+
+# Prepare for data download from Kaggle  
+#mkdir -p ~/.kaggle  
+#mv kaggle.json ~/.kaggle/  
+#chmod 600 ~/.kaggle/kaggle.json  
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%capture
+# # %%capture
 # 
 # !pip install mne
 # !pip install nilearn
 # 
 # 
-# #@title Install dependencies
+# #Install dependencies
 
-# @title whobpyt Package
+# whobpyt Package
 
 from google.colab import drive
 drive.mount('/content/drive')
@@ -68,18 +77,15 @@ from whobpyt.functions.arg_type_check import method_arg_type_check
 
 """## Empirical Result"""
 
-!kaggle datasets download -d davi1990/empirical-data
-!unzip empirical-data.zip
-!rm empirical-data.zip
+#kaggle datasets download -d davi1990/empirical-data
+#unzip empirical-data.zip
+#rm empirical-data.zip
 
 # @title Download Data
 
 start_time = time.time()
 
 import sys
-!{sys.executable} -m pip install mne > /dev/null
-!{sys.executable} -m pip install nilearn > /dev/null
-!{sys.executable} -m pip install nibabel > /dev/null
 
 all_eeg_evoked = np.load('all_eeg_evoked.npy')
 epo_eeg = mne.read_epochs('example_epoched.fif', verbose=False)
@@ -432,24 +438,21 @@ print(f"Elapsed time: {elapsed_time} seconds")
 
 """## Model_fitting"""
 
-!kaggle datasets download -d davi1990/empirical-data
-!unzip empirical-data.zip
-!rm empirical-data.zip
+#kaggle datasets download -d davi1990/empirical-data ;
+#unzip empirical-data.zip ;
+#rm empirical-data.zip ;
 
-!kaggle datasets download -d davi1990/anatomical
-!unzip anatomical.zip
-!rm anatomical.zip
+#kaggle datasets download -d davi1990/anatomical
+#unzip anatomical.zip
+#rm anatomical.zip
 
-!kaggle datasets download -d davi1990/calculate-distance
-!unzip calculate-distance.zip -d calculate-distance
-!rm calculate-distance.zip
+#kaggle datasets download -d davi1990/calculate-distance
+#unzip calculate-distance.zip -d calculate-distance
+#rm calculate-distance.zip
 
 # @title Download Data
 
 import sys
-!{sys.executable} -m pip install mne > /dev/null
-!{sys.executable} -m pip install nilearn > /dev/null
-!{sys.executable} -m pip install nibabel > /dev/null
 
 # @title Install dependencies
 
@@ -833,14 +836,11 @@ simulated_joint_st = simulated_EEG_st.plot_joint(ts_args=ts_args, times=times)
 
 """## Virtual_dissection"""
 
-!kaggle datasets download -d davi1990/virtual-dissection
-!unzip virtual-dissection.zip
-!rm virtual-dissection.zip
+#kaggle datasets download -d davi1990/virtual-dissection
+#unzip virtual-dissection.zip
+#rm virtual-dissection.zip
 
 import sys
-!{sys.executable} -m pip install mne > /dev/null
-!{sys.executable} -m pip install nilearn > /dev/null
-!{sys.executable} -m pip install nibabel > /dev/null
 
 url = 'https://github.com/Davi1990/DissNet/raw/main/examples/network_colour.xlsx'
 colour = pd.read_excel(url, header=None)[4]
@@ -1015,14 +1015,11 @@ plt.show()
 
 """## Applying_virtual_dissection"""
 
-!kaggle datasets download -d davi1990/example-fittingresults
-!unzip example-fittingresults.zip
-!rm example-fittingresults.zip
+#kaggle datasets download -d davi1990/example-fittingresults
+#unzip example-fittingresults.zip
+#rm example-fittingresults.zip
 
 import sys
-!{sys.executable} -m pip install mne > /dev/null
-!{sys.executable} -m pip install nilearn > /dev/null
-!{sys.executable} -m pip install nibabel > /dev/null
 
 # @title Install dependencies
 

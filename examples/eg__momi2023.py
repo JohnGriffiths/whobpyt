@@ -1,12 +1,12 @@
 """
+**Momi et al. 2023**: TMS, EEG, Evoked Responses, Rcecurrence
+===============================================================
+
+Role of recurrent feedback in generation of TMS-evoked responses
+
 .. _ex-momi2023:
-
-========================================================
-Replicating Momi Et Al. ELife 2023 
-========================================================
-
 """
-# sphinx_gallery_thumbnail_number = 1
+# sphinx_gallery_thumbnail_path = "_static/momi2023__Figure_7.png"
 #
 
 # %%
