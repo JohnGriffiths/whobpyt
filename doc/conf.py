@@ -27,14 +27,7 @@ from sphinx_gallery.sorting import ExplicitOrder
 
 #import whobpyt
 
-import mne
 import mne.html_templates._templates
-#from mne.tests.test_docstring_parameters import error_ignores
-
-#from mne.utils import (
-#    linkcode_resolve,
-#    run_subprocess,
-#)
 
 linkcode_resolve = None
 
@@ -42,12 +35,13 @@ linkcode_resolve = None
 matplotlib.use("agg")
 faulthandler.enable()
 #os.environ["_MNE_BROWSER_NO_BLOCK"] = "true"
-os.environ["MNE_BROWSER_OVERVIEW_MODE"] = "hidden"
+#os.environ["MNE_BROWSER_OVERVIEW_MODE"] = "hidden"
 #os.environ["MNE_BROWSER_THEME"] = "light"
 #os.environ["MNE_3D_OPTION_THEME"] = "light"
 # https://numba.readthedocs.io/en/latest/reference/deprecation.html#deprecation-of-old-style-numba-captured-errors  # noqa: E501
 #os.environ["NUMBA_CAPTURED_ERRORS"] = "new_style"
 mne.html_templates._templates._COLLAPSED = False #  True  # collapse info _repr_html_
+
 
 # -- Path setup --------------------------------------------------------------
 
@@ -57,39 +51,27 @@ mne.html_templates._templates._COLLAPSED = False #  True  # collapse info _repr_
 curpath = Path(__file__).parent.resolve(strict=True)
 sys.path.append(str(curpath / "sphinxext"))
 
-# from credit_tools import generate_credit_rst  # noqa: E402
-#from mne_doc_utils import report_scraper, reset_warnings, sphinx_logger  # noqa: E402
+
 
 # -- Project information -----------------------------------------------------
 
-project = "MNE"
+project = "WhoBPyT"
 td = datetime.now(tz=timezone.utc)
 
 # We need to triage which date type we use so that incremental builds work
 # (Sphinx looks at variable changes and rewrites all files if some change)
-#copyright = (  # noqa: A001
-#    f'2012–{td.year}, MNE Developers. Last updated <time datetime="{td.isoformat()}" class="localized">{td.strftime("%Y-%m-%d %H:%M %Z")}</time>\n'  # noqa: E501
-#    '<script type="text/javascript">$(function () { $("time.localized").each(function () { var el = $(this); el.text(new Date(el.attr("datetime")).toLocaleString([], {dateStyle: "medium", timeStyle: "long"})); }); } )</script>'  # noqa: E501
-#)
-
-#if os.getenv("MNE_FULL_DATE", "false").lower() != "true":
-#    copyright = f"2012–{td.year}, MNE Developers. Last updated locally."  # noqa: A001
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The full version, including alpha/beta/rc tags.
-#release = whobpyt.__version__
-#sphinx_logger.info(f"Building documentation for MNE {release} ({mne.__file__})")
-# The short X.Y version.
-#version = ".".join(release.split(".")[:2])
+
 
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
 needs_sphinx = "6.0"
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -143,13 +125,11 @@ master_doc = "index"
 # List of documents that shouldn't be included in the build.
 unused_docs = []
 
-# List of directories, relative to source directory, that shouldn't be searched
-# for source files.
+# List of directories, relative to source directory, that shouldn't be searched for source files.
 exclude_trees = ["_build"]
 
-# The reST default role (used for this markup: `text`) to use for all
-# documents.
-default_role = "py:obj"
+# The reST default role (used for this markup: `text`) to use for all documents.
+defaut_role = "py:obj"
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = [] # ["mne."]
@@ -159,269 +139,13 @@ copybutton_prompt_text = r">>> |\.\.\. |\$ "
 copybutton_prompt_is_regexp = True
 
 # -- sphinxcontrib-towncrier configuration -----------------------------------
-
 towncrier_draft_working_directory = str(curpath.parent)
-
-# -- Intersphinx configuration -----------------------------------------------
-
-"""
-intersphinx_mapping = {
-    # More niche so didn't upstream to intersphinx_registry
-    "nitime": ("https://nipy.org/nitime/", None),
-    "mne_bids": ("https://mne.tools/mne-bids/stable", None),
-    "mne-connectivity": ("https://mne.tools/mne-connectivity/stable", None),
-    "mne-gui-addons": ("https://mne.tools/mne-gui-addons", None),
-    "picard": ("https://pierreablin.github.io/picard/", None),
-    "eeglabio": ("https://eeglabio.readthedocs.io/en/latest", None),
-    "pybv": ("https://pybv.readthedocs.io/en/latest", None),
-}
-"""
-
-#intersphinx_mapping.update(
-#    get_intersphinx_mapping(
-#        packages=set(
-#            """
-#imageio matplotlib numpy pandas python scipy statsmodels sklearn numba joblib nibabel
-#seaborn patsy pyvista dipy nilearn pyqtgraph
-#""".strip().split()
-#        ),
-#    )
-#)
-
 
 # NumPyDoc configuration -----------------------------------------------------
 
-# Define what extra methods numpydoc will document
-#docscrape.ClassDoc.extra_public_methods = mne.utils._doc_special_members
-numpydoc_class_members_toctree = False
-numpydoc_show_inherited_class_members = {}
-#    "mne.Forward": False,
-#    "mne.Projection": False,
-#    "mne.SourceSpaces": False,
-#}
 numpydoc_attributes_as_param_list = True
 numpydoc_xref_param_type = True
 
-"""
-numpydoc_xref_aliases = {
-    # Python
-    "file-like": ":term:`file-like <python:file object>`",
-    "iterator": ":term:`iterator <python:iterator>`",
-    "path-like": ":term:`path-like`",
-    "array-like": ":term:`array_like <numpy:array_like>`",
-    "Path": ":class:`python:pathlib.Path`",
-    "bool": ":ref:`bool <python:typebool>`",
-    # Matplotlib
-    "colormap": ":ref:`colormap <matplotlib:colormaps>`",
-    "color": ":doc:`color <matplotlib:api/colors_api>`",
-    "Axes": "matplotlib.axes.Axes",
-    "Figure": "matplotlib.figure.Figure",
-    "Axes3D": "mpl_toolkits.mplot3d.axes3d.Axes3D",
-    "ColorbarBase": "matplotlib.colorbar.ColorbarBase",
-    # sklearn
-    "LeaveOneOut": "sklearn.model_selection.LeaveOneOut",
-    "MetadataRequest": "sklearn.utils.metadata_routing.MetadataRequest",
-    "estimator": "sklearn.base.BaseEstimator",
-    # joblib
-    "joblib.Parallel": "joblib.Parallel",
-    # nibabel
-    "Nifti1Image": "nibabel.nifti1.Nifti1Image",
-    "Nifti2Image": "nibabel.nifti2.Nifti2Image",
-    "SpatialImage": "nibabel.spatialimages.SpatialImage",
-    # MNE
-    "Label": "mne.Label",
-    "Forward": "mne.Forward",
-    "Evoked": "mne.Evoked",
-    "Info": "mne.Info",
-    "SourceSpaces": "mne.SourceSpaces",
-    "Epochs": "mne.Epochs",
-    "Layout": "mne.channels.Layout",
-    "EvokedArray": "mne.EvokedArray",
-    "BiHemiLabel": "mne.BiHemiLabel",
-    "AverageTFR": "mne.time_frequency.AverageTFR",
-    "AverageTFRArray": "mne.time_frequency.AverageTFRArray",
-    "EpochsTFR": "mne.time_frequency.EpochsTFR",
-    "EpochsTFRArray": "mne.time_frequency.EpochsTFRArray",
-    "RawTFR": "mne.time_frequency.RawTFR",
-    "RawTFRArray": "mne.time_frequency.RawTFRArray",
-    "Raw": "mne.io.Raw",
-    "ICA": "mne.preprocessing.ICA",
-    "Covariance": "mne.Covariance",
-    "Annotations": "mne.Annotations",
-    "DigMontage": "mne.channels.DigMontage",
-    "VectorSourceEstimate": "mne.VectorSourceEstimate",
-    "VolSourceEstimate": "mne.VolSourceEstimate",
-    "VolVectorSourceEstimate": "mne.VolVectorSourceEstimate",
-    "MixedSourceEstimate": "mne.MixedSourceEstimate",
-    "MixedVectorSourceEstimate": "mne.MixedVectorSourceEstimate",
-    "SourceEstimate": "mne.SourceEstimate",
-    "Projection": "mne.Projection",
-    "ConductorModel": "mne.bem.ConductorModel",
-    "Dipole": "mne.Dipole",
-    "DipoleFixed": "mne.DipoleFixed",
-    "InverseOperator": "mne.minimum_norm.InverseOperator",
-    "CrossSpectralDensity": "mne.time_frequency.CrossSpectralDensity",
-    "SourceMorph": "mne.SourceMorph",
-    "Xdawn": "mne.preprocessing.Xdawn",
-    "Report": "mne.Report",
-    "TimeDelayingRidge": "mne.decoding.TimeDelayingRidge",
-    "Vectorizer": "mne.decoding.Vectorizer",
-    "UnsupervisedSpatialFilter": "mne.decoding.UnsupervisedSpatialFilter",
-    "TemporalFilter": "mne.decoding.TemporalFilter",
-    "SSD": "mne.decoding.SSD",
-    "Scaler": "mne.decoding.Scaler",
-    "SPoC": "mne.decoding.SPoC",
-    "PSDEstimator": "mne.decoding.PSDEstimator",
-    "LinearModel": "mne.decoding.LinearModel",
-    "FilterEstimator": "mne.decoding.FilterEstimator",
-    "EMS": "mne.decoding.EMS",
-    "CSP": "mne.decoding.CSP",
-    "Beamformer": "mne.beamformer.Beamformer",
-    "Transform": "mne.transforms.Transform",
-    "Coregistration": "mne.coreg.Coregistration",
-    "Figure3D": "mne.viz.Figure3D",
-    "EOGRegression": "mne.preprocessing.EOGRegression",
-    "Spectrum": "mne.time_frequency.Spectrum",
-    "EpochsSpectrum": "mne.time_frequency.EpochsSpectrum",
-    "EpochsFIF": "mne.Epochs",
-    "EpochsEEGLAB": "mne.Epochs",
-    "EpochsKIT": "mne.Epochs",
-    "RawANT": "mne.io.Raw",
-    "RawBOXY": "mne.io.Raw",
-    "RawBrainVision": "mne.io.Raw",
-    "RawBTi": "mne.io.Raw",
-    "RawCTF": "mne.io.Raw",
-    "RawCurry": "mne.io.Raw",
-    "RawEDF": "mne.io.Raw",
-    "RawEEGLAB": "mne.io.Raw",
-    "RawEGI": "mne.io.Raw",
-    "RawEximia": "mne.io.Raw",
-    "RawEyelink": "mne.io.Raw",
-    "RawFIL": "mne.io.Raw",
-    "RawGDF": "mne.io.Raw",
-    "RawHitachi": "mne.io.Raw",
-    "RawKIT": "mne.io.Raw",
-    "RawNedf": "mne.io.Raw",
-    "RawNeuralynx": "mne.io.Raw",
-    "RawNihon": "mne.io.Raw",
-    "RawNIRX": "mne.io.Raw",
-    "RawPersyst": "mne.io.Raw",
-    "RawSNIRF": "mne.io.Raw",
-    "Calibration": "mne.preprocessing.eyetracking.Calibration",
-    # dipy
-    "dipy.align.AffineMap": "dipy.align.imaffine.AffineMap",
-    "dipy.align.DiffeomorphicMap": "dipy.align.imwarp.DiffeomorphicMap",
-}
-numpydoc_xref_ignore = {
-    # words
-    "and",
-    "between",
-    "instance",
-    "instances",
-    "of",
-    "default",
-    "shape",
-    "or",
-    "with",
-    "length",
-    "pair",
-    "matplotlib",
-    "optional",
-    "kwargs",
-    "in",
-    "dtype",
-    "object",
-    # shapes
-    "n_vertices",
-    "n_faces",
-    "n_channels",
-    "m",
-    "n",
-    "n_events",
-    "n_colors",
-    "n_times",
-    "obj",
-    "n_chan",
-    "n_epochs",
-    "n_picks",
-    "n_ch_groups",
-    "n_dipoles",
-    "n_ica_components",
-    "n_pos",
-    "n_node_names",
-    "n_tapers",
-    "n_signals",
-    "n_step",
-    "n_freqs",
-    "wsize",
-    "Tx",
-    "M",
-    "N",
-    "p",
-    "q",
-    "r",
-    "n_observations",
-    "n_regressors",
-    "n_cols",
-    "n_frequencies",
-    "n_tests",
-    "n_samples",
-    "n_peaks",
-    "n_permutations",
-    "nchan",
-    "n_points",
-    "n_features",
-    "n_parts",
-    "n_features_new",
-    "n_components",
-    "n_labels",
-    "n_events_in",
-    "n_splits",
-    "n_scores",
-    "n_outputs",
-    "n_trials",
-    "n_estimators",
-    "n_tasks",
-    "nd_features",
-    "n_classes",
-    "n_targets",
-    "n_slices",
-    "n_hpi",
-    "n_fids",
-    "n_elp",
-    "n_pts",
-    "n_tris",
-    "n_nodes",
-    "n_nonzero",
-    "n_events_out",
-    "n_segments",
-    "n_orient_inv",
-    "n_orient_fwd",
-    "n_orient",
-    "n_dipoles_lcmv",
-    "n_dipoles_fwd",
-    "n_picks_ref",
-    "n_coords",
-    "n_meg",
-    "n_good_meg",
-    "n_moments",
-    "n_patterns",
-    "n_new_events",
-    # sklearn subclasses
-    "mapping",
-    "to",
-    "any",
-    "pandas",
-    "polars",
-    "default",
-    # unlinkable
-    "CoregistrationUI",
-    "mne_qt_browser.figure.MNEQtBrowser",
-    # pooch, since its website is unreliable and users will rarely need the links
-    "pooch.Unzip",
-    "pooch.Untar",
-    "pooch.HTTPDownloader",
-}
 numpydoc_validate = True
 numpydoc_validation_checks = {"all"} | set(error_ignores)
 numpydoc_validation_exclude = {  # set of regex
@@ -465,16 +189,6 @@ numpydoc_validation_exclude = {  # set of regex
 
 examples_dirs = ["../examples"] # ["../tutorials", "../examples"]
 gallery_dirs = ["auto_examples"] # ["auto_tutorials", "auto_examples"]
-#os.environ["_MNE_BUILDING_DOC"] = "true"
-
-#scrapers = (
-#    "matplotlib",
-#    "mne_doc_utils.gui_scraper",
-#    "mne_doc_utils.brain_scraper",
-#    "pyvista",
-#    "mne_doc_utils.report_scraper",
-#    "mne_doc_utils.mne_qt_browser_scraper",
-#)
 
 compress_images = ("images", "thumbnails")
 # let's make things easier on Windows users
@@ -485,7 +199,6 @@ if sys.platform.startswith("win"):
     except Exception:
         compress_images = ()
 
-#sphinx_gallery_parallel = int(os.getenv("MNE_DOC_BUILD_N_JOBS", "1"))
 sphinx_gallery_conf = {
     "doc_module": ("whobpyt",),
     "reference_url": dict(whobpyt=None),
@@ -493,11 +206,9 @@ sphinx_gallery_conf = {
     "subsection_order": ExplicitOrder(
         [
             "../examples/eg__tmseeg",
-            "../examples/eg__Ismail2025",
+            "../examples/eg__ismail2025",
             "../examples/eg__momi2023",
             "../examples/eg__momi2025",
-            "../examples/visualization",
-            "../examples/preprocessing"
         ]
     ),
     "gallery_dirs": gallery_dirs,
@@ -508,12 +219,7 @@ sphinx_gallery_conf = {
     "remove_config_comments": True,
     "min_reported_time": 1.0,
     "abort_on_example_error": False,
-    #"reset_modules": (
-    #    "matplotlib",
-    #    "mne_doc_utils.reset_modules",
-    #),  # called w/each script
     "reset_modules_order": "both",
-    #"image_scrapers": scrapers,
     "show_memory": sys.platform == "linux" , #and sphinx_gallery_parallel == 1,
     "line_numbers": False,  # messes with style
     "within_subsection_order": "FileNameSortKey",
@@ -522,12 +228,7 @@ sphinx_gallery_conf = {
     "matplotlib_animations": True,
     "compress_images": compress_images,
     "filename_pattern": "^((?!sgskip).)*$",
-    "exclude_implicit_doc": {
-     #   r"mne\.io\.read_raw_fif",
-     #   r"mne\.io\.Raw",
-     #   r"mne\.Epochs",
-     #   r"mne.datasets.*",
-    },
+    "exclude_implicit_doc": {},
     "show_api_usage": "unused",
     "copyfile_regex": r".*index\.rst" #,  # allow custom index.rst files
     }
