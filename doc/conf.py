@@ -27,6 +27,7 @@ from sphinx_gallery.sorting import ExplicitOrder
 
 #import whobpyt
 
+import mne
 import mne.html_templates._templates
 
 linkcode_resolve = None
@@ -34,12 +35,7 @@ linkcode_resolve = None
 # assert linkcode_resolve is not None  # avoid flake warnings, used by numpydoc
 matplotlib.use("agg")
 faulthandler.enable()
-#os.environ["_MNE_BROWSER_NO_BLOCK"] = "true"
-#os.environ["MNE_BROWSER_OVERVIEW_MODE"] = "hidden"
-#os.environ["MNE_BROWSER_THEME"] = "light"
-#os.environ["MNE_3D_OPTION_THEME"] = "light"
 # https://numba.readthedocs.io/en/latest/reference/deprecation.html#deprecation-of-old-style-numba-captured-errors  # noqa: E501
-#os.environ["NUMBA_CAPTURED_ERRORS"] = "new_style"
 mne.html_templates._templates._COLLAPSED = False #  True  # collapse info _repr_html_
 
 
@@ -117,7 +113,7 @@ templates_path = ["_templates"]
 exclude_patterns = ["_includes", "changes/devel"]
 
 # The suffix of source filenames.
-source_suffix = ".rst"
+source_suffix = [".rst", ".md"]
 
 # The main toctree document.
 master_doc = "index"
@@ -146,44 +142,6 @@ towncrier_draft_working_directory = str(curpath.parent)
 numpydoc_attributes_as_param_list = True
 numpydoc_xref_param_type = True
 
-numpydoc_validate = True
-numpydoc_validation_checks = {"all"} | set(error_ignores)
-numpydoc_validation_exclude = {  # set of regex
-    # dict subclasses
-    r"\.clear",
-    r"\.get$",
-    r"\.copy$",
-    r"\.fromkeys",
-    r"\.items",
-    r"\.keys",
-    r"\.move_to_end",
-    r"\.pop",
-    r"\.popitem",
-    r"\.setdefault",
-    r"\.update",
-    r"\.values",
-    # list subclasses
-    r"\.append",
-    r"\.count",
-    r"\.extend",
-    r"\.index",
-    r"\.insert",
-    r"\.remove",
-    r"\.sort",
-    # we currently don't document these properly (probably okay)
-    r"\.__getitem__",
-    r"\.__contains__",
-    r"\.__hash__",
-    r"\.__mul__",
-    r"\.__sub__",
-    r"\.__add__",
-    r"\.__iter__",
-    r"\.__div__",
-    r"\.__neg__",
-    # copied from sklearn
-    r"mne\.utils\.deprecated",
-}
-"""
 
 # -- Sphinx-gallery configuration --------------------------------------------
 
@@ -232,41 +190,7 @@ sphinx_gallery_conf = {
     "show_api_usage": "unused",
     "copyfile_regex": r".*index\.rst" #,  # allow custom index.rst files
     }
-    #"api_usage_ignore": (),
-    #
-    #    "("
-    #    ".*__.*__|"  # built-ins
-    #    ".*Base.*|.*Array.*|mne.Vector.*|mne.Mixed.*|mne.Vol.*|"  # inherited
-    #    "mne.coreg.Coregistration.*|"  # GUI
-    #    # common
-    #    ".*utils.*|.*verbose()|.*copy()|.*update()|.*save()|"
-    #    ".*get_data()|"
-    #    # mixins
-    #    ".*add_channels()|.*add_reference_channels()|"
-    #    ".*anonymize()|.*apply_baseline()|.*apply_function()|"
-    #    ".*apply_hilbert()|.*as_type()|.*decimate()|"
-    #    ".*drop()|.*drop_channels()|.*drop_log_stats()|"
-    #    ".*export()|.*get_channel_types()|"
-    #    ".*get_montage()|.*interpolate_bads()|.*next()|"
-    #    ".*pick()|.*pick_channels()|.*pick_types()|"
-    #    ".*plot_sensors()|.*rename_channels()|"
-    #    ".*reorder_channels()|.*savgol_filter()|"
-    #    ".*set_eeg_reference()|.*set_channel_types()|"
-    #    ".*set_meas_date()|.*set_montage()|.*shift_time()|"
-    #    ".*time_as_index()|.*to_data_frame()|"
-    #    # dictionary inherited
-    #    ".*clear()|.*fromkeys()|.*get()|.*items()|"
-    #    ".*keys()|.*pop()|.*popitem()|.*setdefault()|"
-    #    ".*values()|"
-    #    # sklearn inherited
-    #    ".*apply()|.*decision_function()|.*fit()|"
-    #    ".*fit_transform()|.*get_params()|.*predict()|"
-    #    ".*predict_proba()|.*set_params()|.*transform()|"
-    #    # I/O, also related to mixins
-    #    ".*.remove.*|.*.write.*)"
-    #),
-    #"parallel": sphinx_gallery_parallel,
-
+ 
 assert is_serializable(sphinx_gallery_conf)
 # Files were renamed from plot_* with:
 # find . -type f -name 'plot_*.py' -exec sh -c 'x="{}"; xn=`basename "${x}"`; git mv "$x" `dirname "${x}"`/${xn:5}' \;  # noqa
@@ -297,27 +221,6 @@ def append_attr_meth_examples(app, what, name, obj, options, lines):
 """.format(name.split(".")[-1], name).split("\n")
 
 
-#def fix_sklearn_inherited_docstrings(app, what, name, obj, options, lines):
-#    """Fix sklearn docstrings because they use autolink and we do not."""
-#    if (
-#        name.startswith("mne.decoding.") or name.startswith("mne.preprocessing.Xdawn")
-#    ) and name.endswith(
-#        (
-#            ".get_metadata_routing",
-#            ".fit",
-#            ".fit_transform",
-#            ".set_output",
-#            ".transform",
-#        )
-#    ):
-#        if ":Parameters:" in lines:
-#            loc = lines.index(":Parameters:")
-#        else:
-#            loc = lines.index(":Returns:")
-#        lines.insert(loc, "")
-#        lines.insert(loc, ".. default-role:: autolink")
-#        lines.insert(loc, "")
-
 
 # -- Other extension configuration -------------------------------------------
 
@@ -336,7 +239,7 @@ linkcheck_ignore = [  # will be compiled to regex
     # 403 Client Error: Forbidden
     "https://doi.org/10.1002/",  # onlinelibrary.wiley.com/doi/10.1002/hbm
     "https://doi.org/10.1016/",  # neuroimage
-    "https://doi.org/10.1021/",  # pubs.acs.org/doi/abs
+    "https://doi.org/10.1021/",  # pubss.org/doi/abs
     "https://doi.org/10.1063/",  # pubs.aip.org/aip/jap
     "https://doi.org/10.1073/",  # pnas.org
     "https://doi.org/10.1080/",  # www.tandfonline.com
@@ -498,17 +401,6 @@ html_theme_options = {
     }
 }
 
-## The name of an image file (relative to this directory) to place at the top
-## of the sidebar.
-#html_logo = "_static/whobpyt_logo_feet.png"
-#html_theme_options = {
-#    "logo": {
-#        "image_light": "_static/whobpyt_logo_feet.png",
-#        "image_dark": "_static/whobpyt_logo_feet_dark.png",
-#    }
-#}
-
-
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -520,56 +412,13 @@ html_favicon = "_static/favicon.ico"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-#html_css_files = [
-#    "style.css",
-#]
 
 html_css_files = ['style.css', 'css/fix-sidebar.css']
 
-# # Add any extra paths that contain custom files (such as robots.txt or
-# # .htaccess) here, relative to this directory. These files are copied
-# # directly to the root of the documentation.
-# html_extra_path = [
-#     "contributing.html",
-#     "documentation.html",
-#     "getting_started.html",
-#     "install_mne_python.html",
-# ]
-
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {} #{
-#    "index": ["sidebar-quicklinks.html"],
-#}
-# conf.py
-
-
-#html_sidebars = {
-#    "auto_examples/**": [],          # ← hide left sidebar on every example page
-#    "**": ["search-field.html",      # ← keep your normal sidebar everywhere else
-#           "sidebar-nav-bs.html",
-#           "sidebar-ethical-ads.html"],
-#}
-
-
 html_sidebars = {
     "auto_examples/**": [],          # ← hide left sidebar on every example page
     '**': ["sidebar-nav-bs.html"]}
-#    "**": ["search-field.html",      # ← keep your normal sidebar everywhere else
-#           "sidebar-nav-bs.html",
-
-"""
-html_sidebars = {
-    # every page gets the same sidebar
-    "**": [
-        "globaltoc.html",         # ← full docs tree (collapsible)
-        "searchbox.html",
-        "toggle-sidebar.html",    # ← we add this just below
-    ]
-}
-"""
-
-#html_sidebars = {"**": ['sidebar-collapse', 'sidebar-nav-bs', 'search-field']}
-
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False
@@ -648,8 +497,6 @@ html_context = {
 }
 
 html_theme = "pydata_sphinx_theme"
-
-
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = "whobpyt-doc"
@@ -762,173 +609,8 @@ rst_prolog += f"\n.. |min_python_version| replace:: {min_py}\n"
 
 # Static list created 2021/04/13 based on what we needed to redirect,
 # since we don't need to add redirects for examples added after this date.
-needed_plot_redirects = {
-#    # tutorials
-#    "10_epochs_overview.py",
-#    "10_evoked_overview.py",
-#    "10_overview.py",
-#    "10_preprocessing_overview.py",
-#    "10_raw_overview.py",
-#    "10_reading_meg_data.py",
-#    "15_handling_bad_channels.py",
-#    "20_event_arrays.py",
-#    "20_events_from_raw.py",
-#    "20_reading_eeg_data.py",
-#    "20_rejecting_bad_data.py",
-#    "20_visualize_epochs.py",
-#    "20_visualize_evoked.py",
-#    "30_annotate_raw.py",
-#    "30_epochs_metadata.py",
-#    "30_filtering_resampling.py",
-#    "30_info.py",
-#    "30_reading_fnirs_data.py",
-#    "35_artifact_correction_regression.py",
-#    "40_artifact_correction_ica.py",
-#    "40_autogenerate_metadata.py",
-#    "40_sensor_locations.py",
-#    "40_visualize_raw.py",
-#    "45_projectors_background.py",
-#    "50_artifact_correction_ssp.py",
-#    "50_configure_mne.py",
-#    "50_epochs_to_data_frame.py",
-#    "55_setting_eeg_reference.py",
-#    "59_head_positions.py",
-#    "60_make_fixed_length_epochs.py",
-#    "60_maxwell_filtering_sss.py",
-#    "70_fnirs_processing.py",
-#    # examples
-#    "3d_to_2d.py",
-#    "brainstorm_data.py",
-#    "channel_epochs_image.py",
-#    "cluster_stats_evoked.py",
-#    "compute_csd.py",
-#    "compute_mne_inverse_epochs_in_label.py",
-#    "compute_mne_inverse_raw_in_label.py",
-#    "compute_mne_inverse_volume.py",
-#    "compute_source_psd_epochs.py",
-#    "covariance_whitening_dspm.py",
-#    "custom_inverse_solver.py",
-#    "decoding_csp_eeg.py",
-#    "decoding_csp_timefreq.py",
-#    "decoding_spatio_temporal_source.py",
-#    "decoding_spoc_CMC.py",
-#    "decoding_time_generalization_conditions.py",
-#    "decoding_unsupervised_spatial_filter.py",
-#    "decoding_xdawn_eeg.py",
-#    "define_target_events.py",
-#    "dics_source_power.py",
-#    "eeg_csd.py",
-#    "eeg_on_scalp.py",
-#    "eeglab_head_sphere.py",
-#    "elekta_epochs.py",
-#    "ems_filtering.py",
-#    "eog_artifact_histogram.py",
-#    "evoked_arrowmap.py",
-#    "evoked_ers_source_power.py",
-#    "evoked_topomap.py",
-#    "evoked_whitening.py",
-#    "fdr_stats_evoked.py",
-#    "find_ref_artifacts.py",
-#    "fnirs_artifact_removal.py",
-#    "forward_sensitivity_maps.py",
-#    "gamma_map_inverse.py",
-#    "hf_sef_data.py",
-#    "ica_comparison.py",
-#    "interpolate_bad_channels.py",
-#    "label_activation_from_stc.py",
-#    "label_from_stc.py",
-#    "label_source_activations.py",
-#    "left_cerebellum_volume_source.py",
-#    "limo_data.py",
-#    "linear_model_patterns.py",
-#    "linear_regression_raw.py",
-#    "meg_sensors.py",
-#    "mixed_norm_inverse.py",
-#    "mixed_source_space_inverse.py",
-#    "mne_cov_power.py",
-#    "mne_helmet.py",
-#    "mne_inverse_coherence_epochs.py",
-#    "mne_inverse_envelope_correlation.py",
-#    "mne_inverse_envelope_correlation_volume.py",
-#    "mne_inverse_psi_visual.py",
-#    "morph_surface_stc.py",
-#    "morph_volume_stc.py",
-#    "movement_compensation.py",
-#    "movement_detection.py",
-#    "multidict_reweighted_tfmxne.py",
-#    "muscle_detection.py",
-#    "opm_data.py",
-#    "otp.py",
-#    "parcellation.py",
-#    "psf_ctf_label_leakage.py",
-#    "psf_ctf_vertices.py",
-#    "psf_ctf_vertices_lcmv.py",
-#    "publication_figure.py",
-#    "rap_music.py",
-#    "trap_music.py",
-#    "read_inverse.py",
-#    "read_neo_format.py",
-#    "read_noise_covariance_matrix.py",
-#    "read_stc.py",
-#    "receptive_field_mtrf.py",
-#    "resolution_metrics.py",
-#    "resolution_metrics_eegmeg.py",
-#    "roi_erpimage_by_rt.py",
-#    "sensor_noise_level.py",
-#    "sensor_permutation_test.py",
-#    "sensor_regression.py",
-#    "shift_evoked.py",
-#    "simulate_evoked_data.py",
-#    "simulate_raw_data.py",
-#    "simulated_raw_data_using_subject_anatomy.py",
-#    "snr_estimate.py",
-#    "source_label_time_frequency.py",
-#    "source_power_spectrum.py",
-#    "source_power_spectrum_opm.py",
-#    "source_simulator.py",
-#    "source_space_morphing.py",
-#    "source_space_snr.py",
-#    "source_space_time_frequency.py",
-#    "ssd_spatial_filters.py",
-#    "ssp_projs_sensitivity_map.py",
-#    "temporal_whitening.py",
-#    "time_frequency_erds.py",
-#    "time_frequency_global_field_power.py",
-#    "time_frequency_mixed_norm_inverse.py",
-#    "time_frequency_simulated.py",
-#    "topo_compare_conditions.py",
-#    "topo_customized.py",
-#    "vector_mne_solution.py",
-#    "virtual_evoked.py",
-#    "xdawn_denoising.py",
-#    "xhemi.py",
-}
-api_redirects = {
-#    "connectivity",
-#    "covariance",
-#    "creating_from_arrays",
-#    "datasets",
-#    "decoding",
-#    "events",
-#    "export",
-#    "file_io",
-#    "forward",
-#    "inverse",
-#    "logging",
-#    "most_used_classes",
-#    "mri",
-#    "preprocessing",
-#    "python_reference",
-#    "reading_raw_data",
-#    "realtime",
-#    "report",
-#    "sensor_space",
-#    "simulation",
-#    "source_space",
-#    "statistics",
-#    "time_frequency",
-#    "visualization",
-}
+needed_plot_redirects = { }
+api_redirects = { }
 ex = "auto_examples"
 co = "connectivity"
 mne_conn = "https://mne.tools/mne-connectivity/stable"
@@ -948,15 +630,6 @@ vi = "visualization"
 custom_redirects = {}
     # Custom redirects (one HTML path to another, relative to outdir)
     # can be added here as fr->to key->value mappings
-#    "install/contributing": "development/contributing",
-#    "overview/cite": "documentation/cite",
-#    "overview/get_help": "help/index",
-#    "overview/roadmap": "development/roadmap",
-#    "whats_new": "development/whats_new",
-#    f"{tu}/evoked/plot_eeg_erp": f"{tu}/evoked/30_eeg_erp",
-#    f"{tu}/evoked/plot_whitened": f"{tu}/evoked/40_whitened",
-#    f"{tu}/misc/plot_modifying_data_inplace": f"{tu}/intro/15_inplace",
-
 
 # Adapted from sphinxcontrib/redirects (BSD-2-Clause)
 REDIRECT_TEMPLATE = """\
@@ -989,11 +662,9 @@ def check_existing_redirect(path):
                     "original file was not already a redirect."
                 )
 
-
 def _check_valid_builder(app, exception):
     valid_builder = isinstance(app.builder, sphinx.builders.html.StandaloneHTMLBuilder)
     return valid_builder and exception is None
-
 
 def make_gallery_redirects(app, exception):
     """Make HTML redirects for our sphinx gallery pages."""
@@ -1018,11 +689,6 @@ def make_gallery_redirects(app, exception):
             with open(fr_path, "w") as fid:
                 fid.write(REDIRECT_TEMPLATE.format(to=to_fname))
         
-        #sphinx_logger.info(
-        #    f"Added {len(fnames):3d} HTML plot_* redirects for {out_dir}"
-        #)
-
-
 def make_api_redirects(app, exception):
     """Make HTML redirects for our API pages."""
     if not _check_valid_builder(app, exception):
@@ -1039,73 +705,8 @@ def make_api_redirects(app, exception):
     #sphinx_logger.info(f"Added {len(api_redirects):3d} HTML API redirects")
 
 
-#def make_custom_redirects(app, exception):
-#    """Make HTML redirects for miscellaneous pages."""
-##    if not _check_valid_builder(app, exception):
-#        return
-
-#    for _fr, _to in custom_redirects.items():
-#        fr = f"{_fr}.html"
-#        to = f"{_to}.html"
-#        fr_path = Path(app.outdir) / fr
-#        check_existing_redirect(fr_path)
-#        if to.startswith("http"):
-#            to_path = to
-#        else:
-#            to_path = Path(app.outdir) / to
-#            assert to_path.is_file(), to_path
-#        # recreate folders that no longer exist
-#        defunct_gallery_folders = ()
-       #     "misc",
-       #     "discussions",
-       #     "source-modeling",
-       #     "sample-datasets",
-       #     "connectivity",
-       # )
-#        parts = fr_path.relative_to(Path(app.outdir)).parts
-#        if (
-#            len(parts) > 1  # whats_new violates this
-#            and parts[1] in defunct_gallery_folders
-#            and not fr_path.parent.exists()
-#        ):
-#            os.makedirs(fr_path.parent, exist_ok=True)
-#        # write the redirect
-#        with open(fr_path, "w") as fid:
-#            fid.write(REDIRECT_TEMPLATE.format(to=to_path))
-#    #sphinx_logger.info(f"Added {len(custom_redirects):3d} HTML custom redirects")
-
-
-#def make_version(app, exception):
-#    """Make a text file with the git version."""
-#    if not (
-#        isinstance(app.builder, sphinx.builders.html.StandaloneHTMLBuilder)
-#        and exception is None
-#    ):
-#        return
-#    try:
-#        stdout, _ = run_subprocess(["git", "rev-parse", "HEAD"], verbose=False)
-#    except Exception as exc:
-#        #sphinx_logger.warning(f"Failed to write _version.txt: {exc}")
-#        return
-#    with open(os.path.join(app.outdir, "_version.txt"), "w") as fid:
-#        fid.write(stdout)
-#    #sphinx_logger.info(f'Added "{stdout.rstrip()}" > _version.txt')
-
 
 # -- Connect our handlers to the main Sphinx app ---------------------------
 
-
 def setup(app):
     app.add_css_file("css/fix-sidebar.css")
-
-#def setup(app):
-    #"""Set up the Sphinx app."""
-    #app.connect("autodoc-process-docstring", append_attr_meth_examples)
-    #app.connect("autodoc-process-docstring", fix_sklearn_inherited_docstrings)
-    # High prio, will happen before SG
-    #app.connect("builder-inited", generate_credit_rst, priority=10)
-    #app.connect("builder-inited", report_scraper.set_dirs, priority=20)
-    #app.connect("build-finished", make_gallery_redirects)
-    #app.connect("build-finished", make_api_redirects)
-    #app.connect("build-finished", make_custom_redirects)
-    #app.connect("build-finished", make_version)
