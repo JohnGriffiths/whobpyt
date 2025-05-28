@@ -369,7 +369,7 @@ and results reported in Momi et al. (Nature Comms 2025).</p>
 <p>The code includes data fetching, model fitting, and result visualization based on the methods presented in the paper.</p>
 <p>Please read our <a class="reference external" href="https://elifesciences.org/articles/83232">paper</a>, and if you use this code, please cite it:</p>
 <p>Momi D.,…,…. Griffiths J.D. (2025).
-“Gradients kf Excitability in. Human Cortex Revealsd by Stimulation Mapping and Whole-Brain Modelling.”
+“Gradients of Excitability in Human Cortex Revealed by Stimulation Mapping and Whole-Brain Modelling.”
 eLife, <a class="reference external" href="https://elifesciences.org/articles/83232">doi: 10.7554/eLife.83232</a>.</p>
 <section id="overview-of-study-and-summary-of-key-results">
 <h2>0. Overview of study and summary of key results<a class="headerlink" href="#overview-of-study-and-summary-of-key-results" title="Link to this heading">#</a></h2>
@@ -380,7 +380,7 @@ simultaneous multimodal electrophysiology (stereotactic and scalp electroencepha
 recordings in 36 patients with drug-resistant focal epilepsy during presurgical intracerebral
 electrical stimulation (iES) (323 stimulation sessions). Our analyses revealed an anatomical gradient
 of excitability across the cortex, with stronger iES-evoked EEG responses in high-order compared to
-low-order regions. Mathematical modeling further showed that this variation in excitability levels
+low-order regions. Mathematical modelling further showed that this variation in excitability levels
 results from a differential dependence on recurrent feedback from non-stimulated regions across the
 anatomical hierarchy, and could be extinguished by suppressing those connections in-silico. High-order
 brain regions/networks thus show an activity pattern characterized by more inter-network functional
@@ -394,7 +394,7 @@ strategies for targeted neuromodulation therapies.</p>
 <a class="reference internal image-reference" href="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig1_momi2025.png?raw=true"><img alt="diagram fig 2025" src="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig1_momi2025.png?raw=true" style="width: 600px;" />
 </a>
 </figure>
-<p>A Intracerebral electrical stimulation (iES) applied to an intracortical target region generates
+<p>A. Intracerebral electrical stimulation (iES) applied to an intracortical target region generates
 an early (~20-30 ms) response (evoked-related potential (ERP) waveform component) at high-density
 scalp electroencephalography (hd-EEG) channels sensitive to that region and its immediate neighbors
 (red arrows). This also appears in more distal connected regions after a short delay due to axonal
@@ -402,12 +402,12 @@ conduction and polysynaptic transmission. Subsequent second (~60–80 ms) and 
 evoked components are frequently observed (blue arrows). After identifying the stimulated network in
 this way, we aim to determine the extent to which this second component relies on intrinsic network
 activity versus recurrent whole-brain feedback.</p>
-<p>B Schematic of the hierarchical spatial layout of
+<p>B. Schematic of the hierarchical spatial layout of
 canonical RSNs as demonstrated in Margulies and colleagues12, spanning low-order networks showing
 greater functional segregation to high-order networks showing greater functional integration15.
 Networks are distributed based on their position along the first principal gradient. The stimulation
 sites are distributed across different levels of this gradient.</p>
-<p>C Schematic of virtual dissection
+<p>C. Schematic of virtual dissection
 methodology and key hypotheses tested. We first fit personalized connectome-based computational models
 of iES-evoked responses to the hd-EEG time series, for each patient and stimulation location. Then,
 precisely timed communication interruptions (virtual dissections) were introduced to the fitted models,
@@ -420,14 +420,13 @@ lesioning would lead to activity suppression (C, right side) in high-order but n
 <a class="reference internal image-reference" href="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig2_momi2025.png?raw=true"><img alt="results1 fig 2025" src="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig2_momi2025.png?raw=true" style="width: 600px;" />
 </a>
 </figure>
-<p>A The histogram illustrates the distance in centimeters between the electrode’s centroid delivering
-the electrical stimulus and the center of the nearest Schaefer’s parcel87. The results indicate a high
+<p>A. The histogram illustrates the distance in centimeters between the electrode’s centroid delivering
+the electrical stimulus and the center of the nearest Schaefer’s parcel. The results indicate a high
 level of spatial precision, with 97.2% of sessions showing distances of less than 1 cm.</p>
-<p>B Global mean
-field power (GMFP) of hd-EEG averaged across all 36 subjects and 323 sessions, revealing three
+<p>B. Global mean field power (GMFP) of hd-EEG averaged across all 36 subjects and 323 sessions, revealing three
 consistent response peaks/clusters within strict confidence intervals at ~40 ms, ~80 ms, and ~370 ms,
-consistent with prior electrophysiological research44.</p>
-<p>C GMFP of every stimulated Resting-State Network
+consistent with prior electrophysiological research.</p>
+<p>C. GMFP of every stimulated Resting-State Network
 (RSN) for hd-EEG (top row) and sEEG (bottom row). The bar plot of the normalized area under the curve
 (AUC) of the three clusters revealed a significantly stronger global activation pattern when the
 stimulus targeted high-order networks, such as the Default mode network (DMN) and Frontoparietal
@@ -435,18 +434,18 @@ Network (FPN), particularly for the late evoked responses (third cluster at ~370
 presented as mean values ± standard error of the mean (SEM) (error bars), with individual subject data
 points overlaid (36 independent subjects, 323 stimulation sessions). In the GMFP time course plots,
 shaded areas represent ±SEM around the mean. Notably, this trend aligns with the “principal gradient”
-hierarchy reported in the functional magnetic resonance imaging (fMRI) literature12, which describes
+hierarchy reported in the functional magnetic resonance imaging (fMRI) literature, which describes
 a general pattern from low-order to high-order regions</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig3_momi2025.png?raw=true"><img alt="results2 fig 2025" src="https://github.com/JohnWangDataAnalyst/whobpyt/blob/states/doc/_static/fig3_momi2025.png?raw=true" style="width: 600px;" />
 </a>
 </figure>
-<p>A Global mean field power (GMFP) for every stimulated network for model-generated high-density
+<p>A. Global mean field power (GMFP) for every stimulated network for model-generated high-density
 electroencephalography (hd-EEG) data run with both the intact (continuous line) and disconnected
 (dashed line) structural connectome. Findings show a more pronounced decrease in evoked late responses
-for high-order networks (LN Limbic Network, SN Salience Network, DAN Dorsal attention network,
-FPN Frontoparietal Network, DMN Default mode network).</p>
-<p>B Area under the curve (AUC) differences
+for high-order networks (LN: Limbic Network, SN: Salience Network, DAN: Dorsal attention network,
+FPN: Frontoparietal Network, DMN: Default mode network).</p>
+<p>B. Area under the curve (AUC) differences
 comparing the simulation run with the intact versus the lesioned structural connectome. The bar plot
 shows differences across three time windows (1st response: 0−37 ms, 2nd response: 37–78 ms,
 3rd response: 78–373 ms). Data are presented as mean values ± standard error of the mean (SEM)
@@ -454,7 +453,7 @@ shows differences across three time windows (1st response: 0−37 ms, 2nd resp
 sessions). A significant reduction in the AUC was found for late responses (78−373 ms) of high-order
 networks (LN, SN, DAN, FPN, and DMN) compared to low-order networks (Visual Network [VN] and
 Somatomotor Network [SMN]), indicated by asterisks (<a href="#id1"><span class="problematic" id="id2">*</span></a>P &lt; 0.05).</p>
-<p>C Demonstration of the network
+<p>C. Demonstration of the network
 recurrence-based theory for two representative sessions. Simulations of evoked dynamics are run using
 the intact (left) and lesioned (right) anatomical connectome. In the latter case, the connections were
 removed to isolate the stimulated networks for SMN (top) and DMN (bottom). In the case of the low-order
@@ -463,35 +462,30 @@ high-order network, a substantial reduction or disappearance of evoked component
 </section>
 <section id="conclusions">
 <h3>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h3>
-<ol class="loweralpha simple">
-<li><p>Using a computational framework recently developed for personalized neurostimulation modeling</p></li>
-</ol>
-<p>b. Using model Uncover neural states across netoworks: able to study how the brain signals
-propagate across networks</p>
-<ol class="loweralpha simple" start="3">
-<li><p>using model as simulator to minics patients and treatment potentially</p></li>
+<ol class="upperalpha simple">
+<li><p>Using a computational framework recently developed for personalized neurostimulation modelling.</p></li>
+<li><p>Using model to uncover neural states across netoworks: able to study how the brain signals propagate across networks</p></li>
+<li><p>Using model as a simulator to mimic patient dynamics and potential treatment effects.</p></li>
 </ol>
 </section>
 </section>
 <section id="setup">
 <h2>1. Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
 <p>Importage</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># general stuff</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># General imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-
-
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="c1">#python stuff</span>
+<span class="c1"># Python imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
@@ -499,18 +493,18 @@ propagate across networks</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span>
 
-<span class="c1"># plot stuff</span>
+<span class="c1"># Plot imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
-<span class="c1"># imaging stuff</span>
+<span class="c1"># Imaging imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nilearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotting</span><span class="p">,</span> <span class="n">surface</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nilearn.image</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_img</span>
 
-<span class="c1"># WHOBPYT stuff</span>
+<span class="c1"># WHOBPYT imports</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">whobpyt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">whobpyt.datasets.fetchers</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_egmomi2025</span>
@@ -525,35 +519,38 @@ propagate across networks</p>
 </section>
 <section id="model-fitting-and-key-results">
 <h2>2 - Model fitting and key results<a class="headerlink" href="#model-fitting-and-key-results" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</pre></div>
-</div>
 <section id="empirical-data-analysis">
 <h3>2.1 Empirical Data Analysis<a class="headerlink" href="#empirical-data-analysis" title="Link to this heading">#</a></h3>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading data</span>
-
-<span class="c1"># loading the file from the GitHub URL</span>
+<p>Loading data</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># For estimating run time of the empirical analysis</span>
+<span class="c1"># Loading network colour filw from the GitHub URL</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/Davi1990/DissNet/raw/main/examples/network_colour.xlsx&#39;</span>
 <span class="n">colour</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">4</span><span class="p">]</span>
+<span class="c1"># Evoked data</span>
 <span class="n">all_eeg_evoked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/all_eeg_evoked.npy&#39;</span><span class="p">)</span>
+<span class="c1"># Epoched example</span>
 <span class="n">epo_eeg</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">read_epochs</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/example_epoched.fif&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
+<span class="c1"># GFMA data</span>
 <span class="n">all_gfma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">all_eeg_evoked</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">all_eeg_evoked</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
 
 <span class="k">for</span> <span class="n">ses</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_eeg_evoked</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,:]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">all_eeg_evoked</span><span class="p">[</span><span class="n">ses</span><span class="p">,:,:],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#np.mean(np.mean(epo_eeg._data, axis=0),axis=0)</span>
-    <span class="c1">#Normalized for the baseline for making comparison</span>
+    <span class="c1"># Normalized to the baseline for comparison</span>
     <span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,</span> <span class="p">:</span><span class="mi">300</span><span class="p">]))</span>
 
+<span class="c1"># Load Schaefer 1000 parcels 7 networks</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/dist_Schaefer_1000parcels_7net.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
     <span class="n">dist_Schaefer_1000parcels_7net</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="c1"># Extract the stimulation region data from the loaded pickle file</span>
 <span class="n">stim_region</span> <span class="o">=</span> <span class="n">dist_Schaefer_1000parcels_7net</span><span class="p">[</span><span class="s1">&#39;stim_region&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>plot evoked eeg gfma at each network</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">networks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vis&#39;</span><span class="p">,</span> <span class="s1">&#39;SomMot&#39;</span><span class="p">,</span> <span class="s1">&#39;DorsAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;SalVentAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbic&#39;</span><span class="p">,</span> <span class="s1">&#39;Cont&#39;</span><span class="p">,</span> <span class="s1">&#39;Default&#39;</span><span class="p">]</span>
+<p>Plot evoked EEG GFMA at each network</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7 networks definition</span>
+<span class="n">networks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vis&#39;</span><span class="p">,</span> <span class="s1">&#39;SomMot&#39;</span><span class="p">,</span> <span class="s1">&#39;DorsAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;SalVentAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbic&#39;</span><span class="p">,</span> <span class="s1">&#39;Cont&#39;</span><span class="p">,</span> <span class="s1">&#39;Default&#39;</span><span class="p">]</span>
 <span class="c1"># Create a dictionary to store the network indices</span>
 <span class="n">stim_network_indices</span> <span class="o">=</span> <span class="p">{</span><span class="n">network</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">}</span>
+<span class="c1"># Iterate over stim region</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stim_region</span><span class="p">):</span>
     <span class="c1"># Iterate over each network</span>
     <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
@@ -562,19 +559,18 @@ propagate across networks</p>
             <span class="k">break</span>
 
 <span class="n">net_gfma</span> <span class="o">=</span> <span class="p">{}</span>
-
+<span class="c1"># Iterate over each network</span>
 <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
+    <span class="c1"># GFMA for each network</span>
     <span class="n">net_gfma</span><span class="p">[</span><span class="n">network</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_gfma</span><span class="p">[</span><span class="n">stim_network_indices</span><span class="p">[</span><span class="n">network</span><span class="p">]]</span>
 
-
+<span class="c1"># Get the GFMA averages for each network</span>
 <span class="n">averages</span> <span class="o">=</span> <span class="p">[]</span>
-
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">net_gfma</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="n">averages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
 
 <span class="n">averages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">averages</span><span class="p">)</span>
-
 
 
 <span class="c1"># Define the desired figure size</span>
@@ -588,8 +584,8 @@ propagate across networks</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_001.png" srcset="../_images/sphx_glr_eg__momi2025_001.png" alt="eg  momi2025" class = "sphx-glr-single-img"/><p>plot peaks</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean array as you mentioned</span>
+<img src="../_images/sphx_glr_eg__momi2025_001.png" srcset="../_images/sphx_glr_eg__momi2025_001.png" alt="eg  momi2025" class = "sphx-glr-single-img"/><p>Plot peaks</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean array</span>
 <span class="n">time_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">averages</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">averages</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">300</span><span class="p">])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Find peaks in the time series data</span>
@@ -614,7 +610,7 @@ propagate across networks</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_002.png" srcset="../_images/sphx_glr_eg__momi2025_002.png" alt="Time Series with First 3 Peaks" class = "sphx-glr-single-img"/><p>plot evoked response variation across sessions</p>
+<img src="../_images/sphx_glr_eg__momi2025_002.png" srcset="../_images/sphx_glr_eg__momi2025_002.png" alt="Time Series with First 3 Peaks" class = "sphx-glr-single-img"/><p>Plot evoked response variation across sessions</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming you have a 2D array all_gfma with shape (323, 1001)</span>
 <span class="c1"># Calculate the mean and standard deviation along the first axis (sessions)</span>
 <span class="n">mean_all_gfma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -628,10 +624,8 @@ propagate across networks</p>
 <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">mean_all_gfma</span> <span class="o">+</span> <span class="n">margin_of_error</span>
 <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">mean_all_gfma</span> <span class="o">-</span> <span class="n">margin_of_error</span>
 
-
 <span class="n">upper_bound</span> <span class="o">=</span><span class="n">upper_bound</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">upper_bound</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
 <span class="n">lower_bound</span> <span class="o">=</span><span class="n">lower_bound</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span>
-
 
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">time_series</span><span class="p">):</span>
     <span class="c1"># Plot the time series and the identified peaks</span>
@@ -641,7 +635,6 @@ propagate across networks</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>  <span class="c1"># Use &#39;epo_eeg.times&#39;</span>
-
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>  <span class="c1"># Set the x-axis label to &#39;Time (s)&#39;</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
@@ -652,7 +645,7 @@ propagate across networks</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The lengths of &#39;epo_eeg.times&#39; and &#39;time_series&#39; don&#39;t match.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_003.png" srcset="../_images/sphx_glr_eg__momi2025_003.png" alt="Time Series with First 3 Peaks" class = "sphx-glr-single-img"/><p>plot AUC</p>
+<img src="../_images/sphx_glr_eg__momi2025_003.png" srcset="../_images/sphx_glr_eg__momi2025_003.png" alt="Time Series with First 3 Peaks" class = "sphx-glr-single-img"/><p>Plot AUC</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">windows</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">AUC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="n">all_gfma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
@@ -660,7 +653,6 @@ propagate across networks</p>
 <span class="n">first_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="n">second_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices_sorted</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">third_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices_sorted</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
-
 
 <span class="k">for</span> <span class="n">ses</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_gfma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="n">AUC</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ses</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="o">==</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="o">==</span><span class="n">first_peak</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
@@ -677,12 +669,13 @@ propagate across networks</p>
 
 <span class="n">net_AUC</span> <span class="o">=</span> <span class="p">{}</span>
 
+<span class="c1"># Iterate over each network</span>
 <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
+    <span class="c1"># AUC for each network</span>
     <span class="n">net_AUC</span><span class="p">[</span><span class="n">network</span><span class="p">]</span> <span class="o">=</span> <span class="n">AUC</span><span class="p">[:,</span><span class="n">stim_network_indices</span><span class="p">[</span><span class="n">network</span><span class="p">]]</span>
 
-
+<span class="c1"># Obtain the average AUC</span>
 <span class="n">AUC_averages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">networks</span><span class="p">),</span> <span class="n">windows</span><span class="p">))</span>
-
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">net_AUC</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">AUC_averages</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">net_AUC</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -713,7 +706,6 @@ propagate across networks</p>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Adjust the y-axis limits as needed</span>
 
-
 <span class="c1"># Plot in the second subplot (same as the first subplot)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colour</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
@@ -725,14 +717,13 @@ propagate across networks</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># Adjust the spacing between subplots if needed</span>
 
-
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_004.png" srcset="../_images/sphx_glr_eg__momi2025_004.png" alt="Early response 0-33ms, Late response 33-78ms, Late response 78-397ms" class = "sphx-glr-single-img"/><p>plot seeg at each network</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/all_epo_seeg.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+<img src="../_images/sphx_glr_eg__momi2025_004.png" srcset="../_images/sphx_glr_eg__momi2025_004.png" alt="Early response 0-33ms, Late response 33-78ms, Late response 78-397ms" class = "sphx-glr-single-img"/><p>Plot sEEG at each network</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load sEEG epochs</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/all_epo_seeg.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
     <span class="n">all_epo_seeg</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-
 
 <span class="n">all_gfma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">all_epo_seeg</span><span class="o">.</span><span class="n">keys</span><span class="p">())),</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
 
@@ -743,16 +734,17 @@ propagate across networks</p>
 
     <span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,:]</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">epo_seeg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-
+<span class="c1"># Load Schaefer 1000 parcels</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/empirical_data/dist_Schaefer_1000parcels_7net.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
     <span class="n">dist_Schaefer_1000parcels_7net</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="c1"># Extract the stimulation region data from the loaded pickle file</span>
 <span class="n">stim_region</span> <span class="o">=</span> <span class="n">dist_Schaefer_1000parcels_7net</span><span class="p">[</span><span class="s1">&#39;stim_region&#39;</span><span class="p">]</span>
 
 <span class="n">networks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vis&#39;</span><span class="p">,</span> <span class="s1">&#39;SomMot&#39;</span><span class="p">,</span> <span class="s1">&#39;DorsAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;SalVentAttn&#39;</span><span class="p">,</span> <span class="s1">&#39;Limbic&#39;</span><span class="p">,</span> <span class="s1">&#39;Cont&#39;</span><span class="p">,</span> <span class="s1">&#39;Default&#39;</span><span class="p">]</span>
 <span class="c1"># Create a dictionary to store the network indices</span>
 <span class="n">stim_network_indices</span> <span class="o">=</span> <span class="p">{</span><span class="n">network</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stim_region</span><span class="p">):</span>
-    <span class="c1">#if dist_Schaefer_1000parcels_7net[&#39;dist&#39;][i] &lt; 7:</span>
+    <span class="c1"># if dist_Schaefer_1000parcels_7net[&#39;dist&#39;][i] &lt; 7:</span>
             <span class="c1"># Iterate over each network</span>
             <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">label</span><span class="p">:</span>
@@ -761,20 +753,20 @@ propagate across networks</p>
 
 
 <span class="n">net_gfma</span> <span class="o">=</span> <span class="p">{}</span>
-
+<span class="c1"># Iterate over each network</span>
 <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
+    <span class="c1"># GFMS for each network</span>
     <span class="n">net_gfma</span><span class="p">[</span><span class="n">network</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_gfma</span><span class="p">[</span><span class="n">stim_network_indices</span><span class="p">[</span><span class="n">network</span><span class="p">]]</span>
 
-
+<span class="c1"># Compute the GFMA averages</span>
 <span class="n">averages</span> <span class="o">=</span> <span class="p">[]</span>
-
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">net_gfma</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
     <span class="n">averages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
 
 <span class="n">averages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">averages</span><span class="p">)</span>
 
-<span class="c1"># Download the file from the GitHub URL</span>
+<span class="c1"># Download the network colour file from the GitHub URL</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/Davi1990/DissNet/raw/main/examples/network_colour.xlsx&#39;</span>
 <span class="n">colour</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)[</span><span class="mi">4</span><span class="p">]</span>
 
@@ -786,12 +778,10 @@ propagate across networks</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">averages</span><span class="p">[</span><span class="n">net</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">averages</span><span class="p">[</span><span class="n">net</span><span class="p">,</span> <span class="p">:</span><span class="mi">300</span><span class="p">]),</span> <span class="n">colour</span><span class="p">[</span><span class="n">net</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># Display the plot</span>
-
-
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_005.png" srcset="../_images/sphx_glr_eg__momi2025_005.png" alt="eg  momi2025" class = "sphx-glr-single-img"/><p>plot seeg AUC</p>
+<img src="../_images/sphx_glr_eg__momi2025_005.png" srcset="../_images/sphx_glr_eg__momi2025_005.png" alt="eg  momi2025" class = "sphx-glr-single-img"/><p>Plot sEEG AUC</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean array as you mentioned</span>
 <span class="n">time_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">averages</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">averages</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">300</span><span class="p">])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
@@ -802,10 +792,8 @@ propagate across networks</p>
 
 <span class="c1"># Get the indices of the first 3 peaks in descending order of amplitude</span>
 <span class="n">first_3_peak_indices</span> <span class="o">=</span> <span class="n">peaks</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">peak_values</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">]]</span>
-
 <span class="n">first_3_peak_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">298</span><span class="p">,</span> <span class="mi">337</span><span class="p">,</span> <span class="mi">378</span><span class="p">,</span> <span class="mi">700</span><span class="p">])</span>
 <span class="n">first_3_peak_amplitudes</span> <span class="o">=</span> <span class="n">time_series</span><span class="p">[</span><span class="n">first_3_peak_indices</span><span class="p">]</span>
-
 
 <span class="n">windows</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">AUC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="n">all_gfma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
@@ -814,7 +802,6 @@ propagate across networks</p>
 <span class="n">second_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">third_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
 <span class="n">fourth_peak</span> <span class="o">=</span> <span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">first_3_peak_indices</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
-
 
 <span class="k">for</span> <span class="n">ses</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_gfma</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="n">AUC</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ses</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="o">==</span><span class="n">first_peak</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epo_eeg</span><span class="o">.</span><span class="n">times</span><span class="o">==</span><span class="n">second_peak</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
@@ -825,26 +812,23 @@ propagate across networks</p>
                            <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">all_gfma</span><span class="p">[</span><span class="n">ses</span><span class="p">,</span> <span class="p">:</span><span class="mi">300</span><span class="p">]),</span> <span class="n">dx</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 
-
 <span class="n">AUC</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">AUC</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">/</span> <span class="mi">33</span>
 <span class="n">AUC</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">AUC</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="mi">45</span>
 <span class="n">AUC</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">AUC</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">/</span> <span class="mi">319</span>
 
 <span class="n">net_AUC</span> <span class="o">=</span> <span class="p">{}</span>
-
+<span class="c1"># Iterate over each network</span>
 <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">networks</span><span class="p">:</span>
+    <span class="c1"># AUC for each network</span>
     <span class="n">net_AUC</span><span class="p">[</span><span class="n">network</span><span class="p">]</span> <span class="o">=</span> <span class="n">AUC</span><span class="p">[:,</span><span class="n">stim_network_indices</span><span class="p">[</span><span class="n">network</span><span class="p">]]</span>
 
-
+<span class="c1"># Obtain AUC averages</span>
 <span class="n">AUC_averages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">networks</span><span class="p">),</span> <span class="n">windows</span><span class="p">))</span>
-
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">net_AUC</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="n">AUC_averages</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">net_AUC</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-
 <span class="n">AUC_averages</span> <span class="o">=</span> <span class="n">AUC_averages</span><span class="o">*</span><span class="mi">1000</span>
 <span class="c1"># AUC_averages = (AUC_averages / np.max(AUC_averages, axis=0)) * 100</span>
-
 
 
 <span class="c1"># Create the figure and subplots</span>
@@ -868,8 +852,7 @@ propagate across networks</p>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;AUC&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Adjust the y-axis limits as needed</span>
 
-
-<span class="c1"># Plot in the second subplot (same as the first subplot)</span>
+<span class="c1"># Plot in the third subplot (same as the first subplot)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colour</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">AUC_averages</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">networks</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
@@ -886,7 +869,7 @@ propagate across networks</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Elapsed time: </span><span class="si">{</span><span class="n">elapsed_time</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__momi2025_006.png" srcset="../_images/sphx_glr_eg__momi2025_006.png" alt="Early response -2-37ms, Late response 37-78ms, Late response 78-400ms" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time: 3.2353620529174805 seconds
+<img src="../_images/sphx_glr_eg__momi2025_006.png" srcset="../_images/sphx_glr_eg__momi2025_006.png" alt="Early response -2-37ms, Late response 37-78ms, Late response 78-400ms" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time: 4.070265293121338 seconds
 </pre></div>
 </div>
 </section>
@@ -956,7 +939,7 @@ propagate across networks</p>
 <span class="n">stim_net</span> <span class="o">=</span> <span class="n">stim_region</span><span class="p">[</span><span class="n">ses2use</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 
 
-<span class="c1">#define dist function</span>
+<span class="c1"># Define distance function</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">coord1</span><span class="p">,</span> <span class="n">coord2</span><span class="p">):</span>
     <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="n">coord1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coord1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coord1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="n">coord2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coord2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coord2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -1009,6 +992,7 @@ propagate across networks</p>
 <span class="c1"># Count the number of unique regions affected by the threshold</span>
 <span class="n">number_of_region_affected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">abs_value</span> <span class="o">&gt;</span> <span class="n">thr</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
+<span class="c1"># Load the rewritten Schaeffer 200 parcels</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data_folder</span> <span class="o">+</span> <span class="s1">&#39;/calculate_distance/example_Schaefer2018_200Parcels_7Networks_rewritten.nii&#39;</span><span class="p">)</span>
 
 <span class="c1"># Get the shape and affine matrix of the image</span>
@@ -1188,11 +1172,11 @@ propagate across networks</p>
     [done]
 </pre></div>
 </div>
-<p>create objective function</p>
+<p>Create objective function</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">ObjFun</span> <span class="o">=</span> <span class="n">CostsJR</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>call model fit</p>
+<p>Call model fit</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">Model_fitting</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ObjFun</span><span class="p">)</span>
 
 
@@ -1242,11 +1226,11 @@ propagate across networks</p>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch:  0
 torch.Size([200, 3, 2])
-eeg epoch:  0 loss: 1.885919 Pseudo FC_cor:  0.4502227096848946 cos_sim:  0.03835601986132598
+eeg epoch:  0 loss: 1.8645178 Pseudo FC_cor:  0.42713154970647405 cos_sim:  0.0460225406465128
 Epoch:  1
 torch.Size([200, 3, 2])
-eeg epoch:  1 loss: 0.94757015 Pseudo FC_cor:  0.6214752500580468 cos_sim:  0.12404592090307491
-eeg Pseudo FC_cor:  0.8666478673331227 cos_sim:  0.3525184043591251
+eeg epoch:  1 loss: 0.83560354 Pseudo FC_cor:  0.4072297871885024 cos_sim:  0.3361342142406686
+eeg Pseudo FC_cor:  0.8642159286138256 cos_sim:  0.62714055646117
 No projector specified for this dataset. Please consider the method self.add_proj.
 No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
@@ -1653,7 +1637,7 @@ No projector specified for this dataset. Please consider the method self.add_pro
 <span class="sd">plt.show()&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 47.859 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 59.664 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-momi2025-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/694c0473fd3cc452e452ca5b16880f15/eg__momi2025.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__momi2025.ipynb</span></code></a></p>
