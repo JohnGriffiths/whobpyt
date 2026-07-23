@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Replicating Ismail et al. 2025 &#8212; MNE  documentation</title>
+    <title>Replicating Ismail et al. 2026 &#8212; MNE  documentation</title>
   
   
   
@@ -73,11 +73,11 @@
                 gtag('js', new Date());
                 gtag('config', 'G-5TBCPCRB6X');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/eg__ismail2025';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'auto_examples/eg__ismail2026';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="canonical" href="https://mne.tools/stable/auto_examples/eg__ismail2025.html" />
+    <link rel="canonical" href="https://mne.tools/stable/auto_examples/eg__ismail2026.html" />
     
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -383,17 +383,17 @@
   
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference internal" href="#sphx-glr-download-auto-examples-eg-ismail2025-py"><span class="std std-ref">Go to the end</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-eg-ismail2026-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code.</p>
 </div>
-<section class="sphx-glr-example-title" id="replicating-ismail-et-al-2025">
-<span id="sphx-glr-auto-examples-eg-ismail2025-py"></span><h1>Replicating Ismail et al. 2025<a class="headerlink" href="#replicating-ismail-et-al-2025" title="Link to this heading">#</a></h1>
+<section class="sphx-glr-example-title" id="replicating-ismail-et-al-2026">
+<span id="sphx-glr-auto-examples-eg-ismail2026-py"></span><h1>Replicating Ismail et al. 2026<a class="headerlink" href="#replicating-ismail-et-al-2026" title="Link to this heading">#</a></h1>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <section id="overview">
 <h2>0. Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>This example replicates modelling in the Ismail et al. 2025 paper.
+<p>This example replicates modelling in the Ismail et al. 2026 paper.
 The code includes data fetching, model fitting, and result visualization based on the methods presented in the paper.</p>
 <p>Summary of paper
 In this study, we explore the mechanisms underlying language lateralization in childhood
@@ -402,7 +402,7 @@ circuits play a crucial role in shaping lateralized language function, with loca
 over development while interhemispheric inhibition increases. Using systematic model manipulations and virtual
 transplant experiments, we show that the reduction in local inhibition allows pre-existing asymmetries in interhemispheric
 inhibition to drive laterality. This work provides a developmental framework for understanding how inhibitory circuits shape language networks.</p>
-<img alt="Ismail et al. 2025 Figure 1" class="align-center" src="https://github.com/griffithslab/whobpyt/doc/_static/Ismail2025_Figure1.png" />
+<img alt="Ismail et al. 2026 Figure 1" class="align-center" src="https://github.com/griffithslab/whobpyt/doc/_static/Ismail2025_Figure1.png" />
 <p>This is Figure 1 from the paper, we will begin by replicating the results for one subject in this figure</p>
 </section>
 <section id="setup">
@@ -419,7 +419,7 @@ inhibition to drive laterality. This work provides a developmental framework for
 <span class="kn">import</span><span class="w"> </span><span class="nn">gdown</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">whobpyt.depr.ismail2025.jansen_rit</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParamsModel</span><span class="p">,</span> <span class="n">RNNJANSEN</span><span class="p">,</span> <span class="n">Model_fitting</span><span class="p">,</span> <span class="n">dataloader</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">whobpyt.datasets.fetchers</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_egismail2025</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whobpyt.datasets.fetchers</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_egismail2026</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mne</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
@@ -431,198 +431,54 @@ inhibition to drive laterality. This work provides a developmental framework for
 <section id="download-data">
 <h2>2. Download data<a class="headerlink" href="#download-data" title="Link to this heading">#</a></h2>
 <p>We use an example dataset for one subject on a public Google Drive folder</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">output_dir</span> <span class="o">=</span> <span class="n">fetch_egismail2025</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">output_dir</span> <span class="o">=</span> <span class="n">fetch_egismail2026</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading file 1 of 12: distance.txt
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading distance.txt
 
-
-Downloading distance.txt
-
-Downloading...
-From: https://drive.google.com/uc?id=1P4WSVLiWDdoK_S2cSlDyt1V7JuphfsaZ
-To: /home/runner/.whobpyt/data/eg__ismail2025/distance.txt
-
-  0%|          | 0.00/569k [00:00&lt;?, ?B/s]
-100%|██████████| 569k/569k [00:00&lt;00:00, 15.6MB/s]
-Downloading file 2 of 12: emp_noise_source.npy
 
 
 Downloading emp_noise_source.npy
 
-Downloading...
-From (original): https://drive.google.com/uc?id=1hubOoaJcCExawBKk-fpxNXSmSi-dx2-v
-From (redirected): https://drive.google.com/uc?id=1hubOoaJcCExawBKk-fpxNXSmSi-dx2-v&amp;confirm=t&amp;uuid=e9297bbc-78e9-41b7-97d2-eaf09506cb1b
-To: /home/runner/.whobpyt/data/eg__ismail2025/emp_noise_source.npy
-
-  0%|          | 0.00/200M [00:00&lt;?, ?B/s]
-  1%|▏         | 2.62M/200M [00:00&lt;00:15, 13.1MB/s]
-  2%|▏         | 4.19M/200M [00:01&lt;01:05, 2.99MB/s]
-  3%|▎         | 5.24M/200M [00:02&lt;01:38, 1.99MB/s]
-  3%|▎         | 5.77M/200M [00:02&lt;01:30, 2.14MB/s]
-  4%|▍         | 8.91M/200M [00:02&lt;00:38, 4.92MB/s]
-  9%|▉         | 18.4M/200M [00:02&lt;00:11, 15.5MB/s]
- 11%|█▏        | 22.5M/200M [00:02&lt;00:09, 18.2MB/s]
- 13%|█▎        | 26.7M/200M [00:02&lt;00:07, 22.1MB/s]
- 16%|█▌        | 32.0M/200M [00:03&lt;00:10, 16.3MB/s]
- 18%|█▊        | 36.2M/200M [00:03&lt;00:09, 17.3MB/s]
- 22%|██▏       | 44.6M/200M [00:03&lt;00:06, 24.5MB/s]
- 24%|██▍       | 48.8M/200M [00:03&lt;00:07, 20.0MB/s]
- 30%|██▉       | 59.2M/200M [00:04&lt;00:04, 31.4MB/s]
- 32%|███▏      | 64.0M/200M [00:04&lt;00:05, 24.9MB/s]
- 34%|███▍      | 68.2M/200M [00:04&lt;00:05, 23.3MB/s]
- 38%|███▊      | 76.0M/200M [00:04&lt;00:04, 27.0MB/s]
- 40%|████      | 80.7M/200M [00:04&lt;00:03, 29.9MB/s]
- 42%|████▏     | 84.4M/200M [00:05&lt;00:04, 23.3MB/s]
- 46%|████▋     | 92.8M/200M [00:05&lt;00:03, 29.0MB/s]
- 50%|█████     | 101M/200M [00:05&lt;00:02, 37.1MB/s]
- 53%|█████▎    | 105M/200M [00:05&lt;00:02, 32.8MB/s]
- 55%|█████▍    | 110M/200M [00:05&lt;00:03, 27.9MB/s]
- 58%|█████▊    | 117M/200M [00:05&lt;00:02, 35.9MB/s]
- 61%|██████    | 122M/200M [00:06&lt;00:02, 35.1MB/s]
- 63%|██████▎   | 126M/200M [00:06&lt;00:02, 29.5MB/s]
- 65%|██████▍   | 130M/200M [00:06&lt;00:03, 18.5MB/s]
- 69%|██████▊   | 137M/200M [00:06&lt;00:02, 25.5MB/s]
- 71%|███████   | 142M/200M [00:07&lt;00:02, 27.3MB/s]
- 73%|███████▎  | 146M/200M [00:07&lt;00:01, 27.7MB/s]
- 75%|███████▍  | 149M/200M [00:07&lt;00:01, 28.8MB/s]
- 76%|███████▋  | 153M/200M [00:07&lt;00:01, 26.9MB/s]
- 78%|███████▊  | 156M/200M [00:07&lt;00:01, 23.1MB/s]
- 81%|████████  | 163M/200M [00:07&lt;00:01, 30.8MB/s]
- 83%|████████▎ | 166M/200M [00:07&lt;00:01, 25.5MB/s]
- 85%|████████▍ | 169M/200M [00:08&lt;00:01, 26.6MB/s]
- 87%|████████▋ | 174M/200M [00:08&lt;00:00, 30.9MB/s]
- 89%|████████▉ | 178M/200M [00:08&lt;00:01, 20.7MB/s]
- 93%|█████████▎| 187M/200M [00:08&lt;00:00, 29.6MB/s]
- 95%|█████████▌| 191M/200M [00:08&lt;00:00, 30.7MB/s]
- 97%|█████████▋| 195M/200M [00:08&lt;00:00, 32.8MB/s]
-100%|██████████| 200M/200M [00:09&lt;00:00, 22.2MB/s]
-Downloading file 3 of 12: emp_verb_source.npy
 
 
 Downloading emp_verb_source.npy
 
-Downloading...
-From (original): https://drive.google.com/uc?id=1frpLiDxwdduE1LAOWGPCSDTETTWjkKUh
-From (redirected): https://drive.google.com/uc?id=1frpLiDxwdduE1LAOWGPCSDTETTWjkKUh&amp;confirm=t&amp;uuid=d984efa6-6eca-47e2-baf5-a70e677ea0f3
-To: /home/runner/.whobpyt/data/eg__ismail2025/emp_verb_source.npy
-
-  0%|          | 0.00/209M [00:00&lt;?, ?B/s]
-  3%|▎         | 6.82M/209M [00:00&lt;00:05, 36.0MB/s]
-  5%|▌         | 11.0M/209M [00:00&lt;00:09, 20.4MB/s]
- 14%|█▎        | 28.3M/209M [00:00&lt;00:03, 57.4MB/s]
- 18%|█▊        | 37.7M/209M [00:00&lt;00:04, 40.5MB/s]
- 27%|██▋       | 57.1M/209M [00:01&lt;00:02, 61.4MB/s]
- 34%|███▍      | 71.8M/209M [00:01&lt;00:01, 71.7MB/s]
- 39%|███▉      | 82.3M/209M [00:01&lt;00:01, 69.6MB/s]
- 46%|████▋     | 97.0M/209M [00:01&lt;00:02, 54.6MB/s]
- 57%|█████▋    | 119M/209M [00:01&lt;00:01, 80.5MB/s]
- 63%|██████▎   | 131M/209M [00:02&lt;00:01, 54.7MB/s]
- 69%|██████▉   | 145M/209M [00:02&lt;00:01, 47.1MB/s]
- 80%|███████▉  | 167M/209M [00:02&lt;00:00, 67.7MB/s]
- 86%|████████▌ | 179M/209M [00:03&lt;00:00, 55.1MB/s]
- 95%|█████████▍| 198M/209M [00:03&lt;00:00, 72.1MB/s]
-100%|██████████| 209M/209M [00:03&lt;00:00, 61.3MB/s]
-Downloading file 4 of 12: info.pkl
 
 
 Downloading info.pkl
 
-Downloading...
-From: https://drive.google.com/uc?id=1HpMJzTzxNn-YItSo_GJvCpI3EEuvVWUP
-To: /home/runner/.whobpyt/data/eg__ismail2025/info.pkl
-
-  0%|          | 0.00/59.0k [00:00&lt;?, ?B/s]
-100%|██████████| 59.0k/59.0k [00:00&lt;00:00, 6.07MB/s]
-Downloading file 5 of 12: leadfield_3d.mat
 
 
 Downloading leadfield_3d.mat
 
-Downloading...
-From (original): https://drive.google.com/uc?id=1gtVxgl1z6QQKDyuxlWdePUpU__i2Njba
-From (redirected): https://drive.google.com/uc?id=1gtVxgl1z6QQKDyuxlWdePUpU__i2Njba&amp;confirm=t&amp;uuid=7d35f7d8-a45f-4905-9c20-33e00a857068
-To: /home/runner/.whobpyt/data/eg__ismail2025/leadfield_3d.mat
-
-  0%|          | 0.00/1.16M [00:00&lt;?, ?B/s]
-100%|██████████| 1.16M/1.16M [00:00&lt;00:00, 23.0MB/s]
-Downloading file 6 of 12: noise_evoked.npy
 
 
 Downloading noise_evoked.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=1rgaPu3fRPYxRb6EHkFac4ahC0McbBBJb
-To: /home/runner/.whobpyt/data/eg__ismail2025/noise_evoked.npy
-
-  0%|          | 0.00/1.09M [00:00&lt;?, ?B/s]
-100%|██████████| 1.09M/1.09M [00:00&lt;00:00, 22.3MB/s]
-Downloading file 7 of 12: sim_noise_sensor.npy
 
 
 Downloading sim_noise_sensor.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=1Lr3VV69jBVkNWqz7iPxJHVmflgBTsyYq
-To: /home/runner/.whobpyt/data/eg__ismail2025/sim_noise_sensor.npy
-
-  0%|          | 0.00/1.64M [00:00&lt;?, ?B/s]
-100%|██████████| 1.64M/1.64M [00:00&lt;00:00, 20.9MB/s]
-Downloading file 8 of 12: sim_noise_source.npy
 
 
 Downloading sim_noise_source.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=18os1jbGZS2si7_0p1bb7nplHEKYqW54J
-To: /home/runner/.whobpyt/data/eg__ismail2025/sim_noise_source.npy
-
-  0%|          | 0.00/1.10M [00:00&lt;?, ?B/s]
-100%|██████████| 1.10M/1.10M [00:00&lt;00:00, 20.8MB/s]
-Downloading file 9 of 12: sim_verb_sensor.npy
 
 
 Downloading sim_verb_sensor.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=1pSVY_YPic5mFAoU3xX99HzejS5Fq0ezW
-To: /home/runner/.whobpyt/data/eg__ismail2025/sim_verb_sensor.npy
-
-  0%|          | 0.00/1.64M [00:00&lt;?, ?B/s]
-100%|██████████| 1.64M/1.64M [00:00&lt;00:00, 30.6MB/s]
-Downloading file 10 of 12: sim_verb_source.npy
 
 
 Downloading sim_verb_source.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=1DCLLXr7e6y4o9Gs9sQhGDWrRO6HJU7Oe
-To: /home/runner/.whobpyt/data/eg__ismail2025/sim_verb_source.npy
-
-  0%|          | 0.00/1.10M [00:00&lt;?, ?B/s]
-100%|██████████| 1.10M/1.10M [00:00&lt;00:00, 20.2MB/s]
-Downloading file 11 of 12: verb_evoked.npy
 
 
 Downloading verb_evoked.npy
 
-Downloading...
-From: https://drive.google.com/uc?id=1VKCFgHQ78rraTvyJxVWBYevm4omMYMxG
-To: /home/runner/.whobpyt/data/eg__ismail2025/verb_evoked.npy
-
-  0%|          | 0.00/1.09M [00:00&lt;?, ?B/s]
-100%|██████████| 1.09M/1.09M [00:00&lt;00:00, 21.4MB/s]
-Downloading file 12 of 12: weights.csv
 
 
 Downloading weights.csv
-
-Downloading...
-From: https://drive.google.com/uc?id=1zFBPr25WZEPJVICLx19-JS3XQESsQVNu
-To: /home/runner/.whobpyt/data/eg__ismail2025/weights.csv
-
-  0%|          | 0.00/288k [00:00&lt;?, ?B/s]
-100%|██████████| 288k/288k [00:00&lt;00:00, 11.5MB/s]
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -714,34 +570,44 @@ To: /home/runner/.whobpyt/data/eg__ismail2025/weights.csv
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[-0.1261,  0.0658, -0.3227,  ..., -0.5296,  0.3427,  0.1397],
-        [-0.0640,  0.5947, -0.1987,  ..., -1.1778,  0.8246,  0.1368],
-        [-0.0204,  0.9334, -0.1343,  ..., -1.4175,  1.1822,  0.0956],
+tensor([[-1.1934e-01,  6.9720e-02, -3.3399e-01,  ..., -5.2878e-01,
+          3.2664e-01,  1.2226e-01],
+        [-7.0096e-02,  5.9143e-01, -2.0062e-01,  ..., -1.1612e+00,
+          8.4764e-01,  1.2754e-01],
+        [-1.0087e-03,  9.2231e-01, -1.2562e-01,  ..., -1.4003e+00,
+          1.1747e+00,  9.3126e-02],
         ...,
-        [ 0.2888,  0.1092,  0.5412,  ..., -0.2359, -0.2993, -0.3397],
-        [ 0.0741, -0.0598,  0.2402,  ..., -0.1569, -0.1141, -0.0359],
-        [ 0.6598,  0.8102,  0.7349,  ..., -0.5116, -0.9549, -0.7962]],
-       requires_grad=True)
-epoch:  0 -225616.89
-epoch:  0 0.29196466162496887 cos_sim:  -0.030546247615291344
-epoch:  1 -226282.84
-epoch:  1 0.3687830876590225 cos_sim:  0.04407274752095164
-0.402392630264442 cos_sim:  0.12361221922083528
+        [ 3.1082e-01,  1.0501e-01,  5.3054e-01,  ..., -2.4510e-01,
+         -3.1480e-01, -3.1503e-01],
+        [ 8.3135e-02, -5.6220e-02,  2.4755e-01,  ..., -1.5428e-01,
+         -1.1583e-01, -4.4322e-02],
+        [ 6.4062e-01,  8.2090e-01,  7.3400e-01,  ..., -5.0806e-01,
+         -9.4343e-01, -7.8861e-01]], requires_grad=True)
+epoch:  0 -225560.47
+epoch:  0 0.29683250433761177 cos_sim:  -0.035637026254502505
+epoch:  1 -226218.83
+epoch:  1 0.3693844268438891 cos_sim:  0.049061098013792714
+0.4070208476237551 cos_sim:  0.1187108828050231
 Finished fitting model to verb trials
 Parameter containing:
-tensor([[-0.1261,  0.0658, -0.3227,  ..., -0.5296,  0.3427,  0.1397],
-        [-0.0640,  0.5947, -0.1987,  ..., -1.1778,  0.8246,  0.1368],
-        [-0.0204,  0.9334, -0.1343,  ..., -1.4175,  1.1822,  0.0956],
+tensor([[-1.1934e-01,  6.9720e-02, -3.3399e-01,  ..., -5.2878e-01,
+          3.2664e-01,  1.2226e-01],
+        [-7.0096e-02,  5.9143e-01, -2.0062e-01,  ..., -1.1612e+00,
+          8.4764e-01,  1.2754e-01],
+        [-1.0087e-03,  9.2231e-01, -1.2562e-01,  ..., -1.4003e+00,
+          1.1747e+00,  9.3126e-02],
         ...,
-        [ 0.2888,  0.1092,  0.5412,  ..., -0.2359, -0.2993, -0.3397],
-        [ 0.0741, -0.0598,  0.2402,  ..., -0.1569, -0.1141, -0.0359],
-        [ 0.6598,  0.8102,  0.7349,  ..., -0.5116, -0.9549, -0.7962]],
-       requires_grad=True)
-epoch:  0 -225624.64
-epoch:  0 0.21507705103275498 cos_sim:  -0.12165577961518746
-epoch:  1 -226292.62
-epoch:  1 0.29344674463253917 cos_sim:  -0.06473387895929089
-0.27722269869751864 cos_sim:  -0.039240210552890294
+        [ 3.1082e-01,  1.0501e-01,  5.3054e-01,  ..., -2.4510e-01,
+         -3.1480e-01, -3.1503e-01],
+        [ 8.3135e-02, -5.6220e-02,  2.4755e-01,  ..., -1.5428e-01,
+         -1.1583e-01, -4.4322e-02],
+        [ 6.4062e-01,  8.2090e-01,  7.3400e-01,  ..., -5.0806e-01,
+         -9.4343e-01, -7.8861e-01]], requires_grad=True)
+epoch:  0 -225546.48
+epoch:  0 0.23239408326229594 cos_sim:  -0.11702020378073798
+epoch:  1 -226209.19
+epoch:  1 0.2697031569634984 cos_sim:  -0.07742173064539232
+0.27047883570104836 cos_sim:  -0.03018207528219571
 Finished fitting model to noise trials
 </pre></div>
 </div>
@@ -775,10 +641,10 @@ Finished fitting model to noise trials
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img src="../_images/sphx_glr_eg__ismail2025_001.png" srcset="../_images/sphx_glr_eg__ismail2025_001.png" alt="Empirical Verb, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../_images/sphx_glr_eg__ismail2025_002.png" srcset="../_images/sphx_glr_eg__ismail2025_002.png" alt="Simulated Verb, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../_images/sphx_glr_eg__ismail2025_003.png" srcset="../_images/sphx_glr_eg__ismail2025_003.png" alt="Empirical Noise, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../_images/sphx_glr_eg__ismail2025_004.png" srcset="../_images/sphx_glr_eg__ismail2025_004.png" alt="Simulated Noise, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_eg__ismail2026_001.png" srcset="../_images/sphx_glr_eg__ismail2026_001.png" alt="Empirical Verb, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_eg__ismail2026_002.png" srcset="../_images/sphx_glr_eg__ismail2026_002.png" alt="Simulated Verb, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_eg__ismail2026_003.png" srcset="../_images/sphx_glr_eg__ismail2026_003.png" alt="Empirical Noise, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_eg__ismail2026_004.png" srcset="../_images/sphx_glr_eg__ismail2026_004.png" alt="Simulated Noise, 0.070 s, 0.100 s, 0.159 s" class = "sphx-glr-multi-img"/></li>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 No projector specified for this dataset. Please consider the method self.add_proj.
@@ -844,8 +710,8 @@ Create longer empty array with same shape and fill with the first 500 ms</p>
 <span class="n">sim_sensor_noise</span> <span class="o">=</span> <span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">eeg_test</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.42751954651543034 cos_sim:  0.09456281226270395
-0.2805104720897977 cos_sim:  -0.034118322082628286
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.42840807347644094 cos_sim:  0.09985269053652479
+0.24536120569072667 cos_sim:  -0.03466760029894753
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
@@ -913,22 +779,22 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_eg__ismail2025_005.png" srcset="../_images/sphx_glr_eg__ismail2025_005.png" alt="eg  ismail2025" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/scipy/signal/_spectral_py.py:790: UserWarning: nperseg = 512 is greater than input length  = 500, using nperseg = 500
+<img src="../_images/sphx_glr_eg__ismail2026_005.png" srcset="../_images/sphx_glr_eg__ismail2026_005.png" alt="eg  ismail2026" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.10.20/x64/lib/python3.10/site-packages/scipy/signal/_spectral_py.py:790: UserWarning: nperseg = 512 is greater than input length  = 500, using nperseg = 500
   freqs, _, Pxy = _spectral_helper(x, y, fs, window, nperseg, noverlap,
 </pre></div>
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (7 minutes 20.040 seconds)</p>
-<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2025-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (7 minutes 13.804 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2026-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/fa46508a782571b79143e92910a4f1a8/eg__ismail2025.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__ismail2025.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/053c9953b94e62892b145c5f664b294e/eg__ismail2026.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__ismail2026.ipynb</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/aa6e2730d4e80caab205a65dd1ce8bb6/eg__ismail2025.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg__ismail2025.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/5d4c2676396a127e35dfca57a01542bc/eg__ismail2026.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg__ismail2026.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-zip docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/12b04a24b2b01289f457e3af0292c3b8/eg__ismail2025.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">eg__ismail2025.zip</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/923f377875a260803dd44a2b4daf2744/eg__ismail2026.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">eg__ismail2026.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
