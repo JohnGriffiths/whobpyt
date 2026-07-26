@@ -450,6 +450,10 @@ Downloading info.pkl
 
 
 
+Downloading info_nosubjinfo.pkl
+
+
+
 Downloading leadfield_3d.mat
 
 
@@ -570,44 +574,34 @@ Downloading weights.csv
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[-1.1934e-01,  6.9720e-02, -3.3399e-01,  ..., -5.2878e-01,
-          3.2664e-01,  1.2226e-01],
-        [-7.0096e-02,  5.9143e-01, -2.0062e-01,  ..., -1.1612e+00,
-          8.4764e-01,  1.2754e-01],
-        [-1.0087e-03,  9.2231e-01, -1.2562e-01,  ..., -1.4003e+00,
-          1.1747e+00,  9.3126e-02],
+tensor([[-0.1290,  0.0445, -0.3538,  ..., -0.5411,  0.3343,  0.1381],
+        [-0.0660,  0.6168, -0.1917,  ..., -1.1738,  0.8513,  0.1260],
+        [-0.0051,  0.9291, -0.1215,  ..., -1.4240,  1.1888,  0.1134],
         ...,
-        [ 3.1082e-01,  1.0501e-01,  5.3054e-01,  ..., -2.4510e-01,
-         -3.1480e-01, -3.1503e-01],
-        [ 8.3135e-02, -5.6220e-02,  2.4755e-01,  ..., -1.5428e-01,
-         -1.1583e-01, -4.4322e-02],
-        [ 6.4062e-01,  8.2090e-01,  7.3400e-01,  ..., -5.0806e-01,
-         -9.4343e-01, -7.8861e-01]], requires_grad=True)
-epoch:  0 -225560.47
-epoch:  0 0.29683250433761177 cos_sim:  -0.035637026254502505
-epoch:  1 -226218.83
-epoch:  1 0.3693844268438891 cos_sim:  0.049061098013792714
-0.4070208476237551 cos_sim:  0.1187108828050231
+        [ 0.3217,  0.1016,  0.5075,  ..., -0.2378, -0.3157, -0.3350],
+        [ 0.0802, -0.0400,  0.2391,  ..., -0.1430, -0.1369, -0.0347],
+        [ 0.6409,  0.8148,  0.7539,  ..., -0.5033, -0.9280, -0.7816]],
+       requires_grad=True)
+epoch:  0 -225538.94
+epoch:  0 0.29650000236165835 cos_sim:  0.005087135876377159
+epoch:  1 -226199.48
+epoch:  1 0.36194646534484076 cos_sim:  0.058171386632740275
+0.408200434330278 cos_sim:  0.13183540868523783
 Finished fitting model to verb trials
 Parameter containing:
-tensor([[-1.1934e-01,  6.9720e-02, -3.3399e-01,  ..., -5.2878e-01,
-          3.2664e-01,  1.2226e-01],
-        [-7.0096e-02,  5.9143e-01, -2.0062e-01,  ..., -1.1612e+00,
-          8.4764e-01,  1.2754e-01],
-        [-1.0087e-03,  9.2231e-01, -1.2562e-01,  ..., -1.4003e+00,
-          1.1747e+00,  9.3126e-02],
+tensor([[-0.1290,  0.0445, -0.3538,  ..., -0.5411,  0.3343,  0.1381],
+        [-0.0660,  0.6168, -0.1917,  ..., -1.1738,  0.8513,  0.1260],
+        [-0.0051,  0.9291, -0.1215,  ..., -1.4240,  1.1888,  0.1134],
         ...,
-        [ 3.1082e-01,  1.0501e-01,  5.3054e-01,  ..., -2.4510e-01,
-         -3.1480e-01, -3.1503e-01],
-        [ 8.3135e-02, -5.6220e-02,  2.4755e-01,  ..., -1.5428e-01,
-         -1.1583e-01, -4.4322e-02],
-        [ 6.4062e-01,  8.2090e-01,  7.3400e-01,  ..., -5.0806e-01,
-         -9.4343e-01, -7.8861e-01]], requires_grad=True)
-epoch:  0 -225546.48
-epoch:  0 0.23239408326229594 cos_sim:  -0.11702020378073798
-epoch:  1 -226209.19
-epoch:  1 0.2697031569634984 cos_sim:  -0.07742173064539232
-0.27047883570104836 cos_sim:  -0.03018207528219571
+        [ 0.3217,  0.1016,  0.5075,  ..., -0.2378, -0.3157, -0.3350],
+        [ 0.0802, -0.0400,  0.2391,  ..., -0.1430, -0.1369, -0.0347],
+        [ 0.6409,  0.8148,  0.7539,  ..., -0.5033, -0.9280, -0.7816]],
+       requires_grad=True)
+epoch:  0 -225524.67
+epoch:  0 0.21689047424664198 cos_sim:  -0.12778376875981232
+epoch:  1 -226188.36
+epoch:  1 0.2735450437311176 cos_sim:  -0.0749835460843036
+0.28841278142951665 cos_sim:  -0.044564542057189994
 Finished fitting model to noise trials
 </pre></div>
 </div>
@@ -620,7 +614,7 @@ Finished fitting model to noise trials
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">verb_meg_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;sim_verb_sensor.npy&#39;</span><span class="p">))</span>
 <span class="n">noise_meg_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;sim_noise_sensor.npy&#39;</span><span class="p">))</span>
 <span class="c1"># Use existing MEG channel structure to use MNE format</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;info.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;info_nosubjinfo.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="c1"># Convert empirical data to MNE format</span>
 <span class="n">emp_verb_evoked</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">EvokedArray</span><span class="p">(</span><span class="n">verb_meg</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:],</span> <span class="n">info</span><span class="p">,</span> <span class="n">tmin</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">)</span>
@@ -710,8 +704,8 @@ Create longer empty array with same shape and fill with the first 500 ms</p>
 <span class="n">sim_sensor_noise</span> <span class="o">=</span> <span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">eeg_test</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.42840807347644094 cos_sim:  0.09985269053652479
-0.24536120569072667 cos_sim:  -0.03466760029894753
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4362234655686459 cos_sim:  0.08040273783322661
+0.2651215134836117 cos_sim:  -0.04194195300781421
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
@@ -785,7 +779,7 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (7 minutes 13.804 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (6 minutes 11.598 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2026-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/053c9953b94e62892b145c5f664b294e/eg__ismail2026.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg__ismail2026.ipynb</span></code></a></p>
