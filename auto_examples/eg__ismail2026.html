@@ -578,10 +578,10 @@ tensor([[-0.1163,  0.0537, -0.3544,  ..., -0.5147,  0.3399,  0.1362],
         [ 0.6528,  0.8062,  0.7227,  ..., -0.5340, -0.9398, -0.8096]],
        requires_grad=True)
 epoch:  0 -225538.94
-epoch:  0 0.2910419842130899 cos_sim:  0.02037609245953059
+epoch:  0 0.29104198421309 cos_sim:  0.02037609245953059
 epoch:  1 -226195.28
-epoch:  1 0.36696059587312463 cos_sim:  0.057172471220503965
-0.4084094447280117 cos_sim:  0.13798053456785664
+epoch:  1 0.3669605958731248 cos_sim:  0.057172471220503965
+0.4084094447280121 cos_sim:  0.13798053456785664
 Finished fitting model to verb trials
 Parameter containing:
 tensor([[-0.1163,  0.0537, -0.3544,  ..., -0.5147,  0.3399,  0.1362],
@@ -593,10 +593,10 @@ tensor([[-0.1163,  0.0537, -0.3544,  ..., -0.5147,  0.3399,  0.1362],
         [ 0.6528,  0.8062,  0.7227,  ..., -0.5340, -0.9398, -0.8096]],
        requires_grad=True)
 epoch:  0 -225539.33
-epoch:  0 0.22474043245898734 cos_sim:  -0.11180237964167139
+epoch:  0 0.22474043245898714 cos_sim:  -0.11180237964167139
 epoch:  1 -226198.92
-epoch:  1 0.28632813511434096 cos_sim:  -0.08120867609258911
-0.26936201376569063 cos_sim:  -0.024943003659769668
+epoch:  1 0.2863281351143409 cos_sim:  -0.08120867609258911
+0.26936201376569036 cos_sim:  -0.024943003659769668
 Finished fitting model to noise trials
 </pre></div>
 </div>
@@ -691,8 +691,8 @@ Create longer empty array with same shape and fill with the first 500 ms</p>
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sim_source_noise</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">P_test</span></a><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sim_sensor_noise</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">eeg_test</span></a><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4337385108981224 cos_sim:  0.09519846233695865
-0.2638979938051628 cos_sim:  -0.050096257758675704
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4337385108981222 cos_sim:  0.09519846233695867
+0.263897993805163 cos_sim:  -0.05009625775867572
 </pre></div>
 </div>
 </section>
@@ -763,7 +763,7 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 5.570 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (5 minutes 42.617 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2026-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/GriffithsLab/whobpyt/gh-pages?urlpath=lab/tree/notebooks/auto_examples/eg__ismail2026.ipynb"><img alt="Launch binder" src="../_images/binder_badge_logo.svg" style="width: 150px;" />

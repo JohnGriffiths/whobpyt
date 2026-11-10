@@ -26,7 +26,7 @@ once into the standard WhoBPyT data cache.
 
 # %%
 # 1. Load anatomical inputs, not empirical EEG
-# -------------------------------------------
+# ---------------------------------------------
 #
 # ``anatomy_only=True`` fetches five files: connectivity, tract distances,
 # subject 1's lead field, the original stimulation weights, and the matching
