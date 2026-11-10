@@ -67,7 +67,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Role of Recurrent Network Feedback in TMS-EEG Evoked Responses" href="eg__momi2023.html" />
-    <link rel="prev" title="Getting started: simulate and fit a whole-brain model" href="eg__getting_started.html" />
+    <link rel="prev" title="Real connectome, synthetic EEG: stimulation, propagation, and fitting" href="eg__getting_started_connectome.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0.dev0" />
@@ -486,21 +486,6 @@ inhibition to drive laterality. This work provides a developmental framework for
 <p>We use an example dataset for one subject on a public Google Drive folder</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">output_dir</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-whobpyt-datasets-fetchers sphx-glr-backref-type-py-function reference internal" href="../documentation/api/datasets.html#whobpyt.datasets.fetchers.fetch_egismail2026" title="whobpyt.datasets.fetchers.fetch_egismail2026"><span class="n">fetch_egismail2026</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[1/13] Downloading distance.txt
-[2/13] Downloading emp_noise_source.npy
-[3/13] Downloading emp_verb_source.npy
-[4/13] Downloading info.pkl
-[5/13] Downloading info_nosubjinfo.pkl
-[6/13] Downloading leadfield_3d.mat
-[7/13] Downloading noise_evoked.npy
-[8/13] Downloading sim_noise_sensor.npy
-[9/13] Downloading sim_noise_source.npy
-[10/13] Downloading sim_verb_sensor.npy
-[11/13] Downloading sim_verb_source.npy
-[12/13] Downloading verb_evoked.npy
-[13/13] Downloading weights.csv
-</pre></div>
-</div>
 </section>
 <section id="load-functional-data">
 <h2>3. Load Functional Data<a class="headerlink" href="#load-functional-data" title="Link to this heading">#</a></h2>
@@ -584,34 +569,34 @@ Evoked MEG data averaged across trials (-100 to 400 ms)</p>
 </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="s2">Finished fitting model to noise trials</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[-0.1098,  0.0624, -0.3300,  ..., -0.5234,  0.3307,  0.1307],
-        [-0.0517,  0.5992, -0.1790,  ..., -1.1462,  0.8445,  0.1272],
-        [-0.0201,  0.9366, -0.1384,  ..., -1.4282,  1.1865,  0.0951],
+tensor([[-0.1163,  0.0537, -0.3544,  ..., -0.5147,  0.3399,  0.1362],
+        [-0.0302,  0.5919, -0.1934,  ..., -1.1794,  0.8339,  0.1498],
+        [ 0.0142,  0.9005, -0.1437,  ..., -1.3975,  1.1733,  0.0972],
         ...,
-        [ 0.3139,  0.0979,  0.5336,  ..., -0.2384, -0.2967, -0.3319],
-        [ 0.0649, -0.0562,  0.2184,  ..., -0.1500, -0.1174, -0.0264],
-        [ 0.6493,  0.8077,  0.7365,  ..., -0.5151, -0.9416, -0.8089]],
+        [ 0.3196,  0.0998,  0.5287,  ..., -0.2376, -0.3043, -0.3395],
+        [ 0.0725, -0.0505,  0.2309,  ..., -0.1428, -0.1067, -0.0253],
+        [ 0.6528,  0.8062,  0.7227,  ..., -0.5340, -0.9398, -0.8096]],
        requires_grad=True)
-epoch:  0 -225555.33
-epoch:  0 0.30460155878342454 cos_sim:  -0.056387935592963456
-epoch:  1 -226226.97
-epoch:  1 0.36637415763452535 cos_sim:  0.04921187246012653
-0.41102292114150885 cos_sim:  0.10147384586990191
+epoch:  0 -225538.94
+epoch:  0 0.2910419842130899 cos_sim:  0.02037609245953059
+epoch:  1 -226195.28
+epoch:  1 0.36696059587312463 cos_sim:  0.057172471220503965
+0.4084094447280117 cos_sim:  0.13798053456785664
 Finished fitting model to verb trials
 Parameter containing:
-tensor([[-0.1098,  0.0624, -0.3300,  ..., -0.5234,  0.3307,  0.1307],
-        [-0.0517,  0.5992, -0.1790,  ..., -1.1462,  0.8445,  0.1272],
-        [-0.0201,  0.9366, -0.1384,  ..., -1.4282,  1.1865,  0.0951],
+tensor([[-0.1163,  0.0537, -0.3544,  ..., -0.5147,  0.3399,  0.1362],
+        [-0.0302,  0.5919, -0.1934,  ..., -1.1794,  0.8339,  0.1498],
+        [ 0.0142,  0.9005, -0.1437,  ..., -1.3975,  1.1733,  0.0972],
         ...,
-        [ 0.3139,  0.0979,  0.5336,  ..., -0.2384, -0.2967, -0.3319],
-        [ 0.0649, -0.0562,  0.2184,  ..., -0.1500, -0.1174, -0.0264],
-        [ 0.6493,  0.8077,  0.7365,  ..., -0.5151, -0.9416, -0.8089]],
+        [ 0.3196,  0.0998,  0.5287,  ..., -0.2376, -0.3043, -0.3395],
+        [ 0.0725, -0.0505,  0.2309,  ..., -0.1428, -0.1067, -0.0253],
+        [ 0.6528,  0.8062,  0.7227,  ..., -0.5340, -0.9398, -0.8096]],
        requires_grad=True)
-epoch:  0 -225559.33
-epoch:  0 0.22818162342166357 cos_sim:  -0.11490302792671207
-epoch:  1 -226230.73
-epoch:  1 0.2739276935614341 cos_sim:  -0.07553709377701305
-0.2712973112594996 cos_sim:  -0.019322574906271518
+epoch:  0 -225539.33
+epoch:  0 0.22474043245898734 cos_sim:  -0.11180237964167139
+epoch:  1 -226198.92
+epoch:  1 0.28632813511434096 cos_sim:  -0.08120867609258911
+0.26936201376569063 cos_sim:  -0.024943003659769668
 Finished fitting model to noise trials
 </pre></div>
 </div>
@@ -706,8 +691,8 @@ Create longer empty array with same shape and fill with the first 500 ms</p>
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sim_source_noise</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">P_test</span></a><span class="w">
 </span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sim_sensor_noise</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">noise_F</span><span class="o">.</span><span class="n">output_sim</span><span class="o">.</span><span class="n">eeg_test</span></a><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4199185557221877 cos_sim:  0.08540972934983257
-0.24435109338388383 cos_sim:  -0.029608468320017574
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>0.4337385108981224 cos_sim:  0.09519846233695865
+0.2638979938051628 cos_sim:  -0.050096257758675704
 </pre></div>
 </div>
 </section>
@@ -778,7 +763,7 @@ We will load the empirical source data (model was fitted with sensor MEG data) a
 </div>
 <p><strong>Results Description:</strong>
 Remarkably, despite being trained solely on early responses (0–400 ms), the models generalized beyond the fitted time window and domain, predicting beta-band oscillations (13-30 Hz) observed in a later time window during language production (700–1200 ms; Fig. 1B) in the frequency domain (Fig. 1D). This is a non-trivial result that highlights the model’s capacity to link temporal and spectral features of neural dynamics during the task. For this adolescent subject, models predicted a left-lateralized pattern, with left-right difference in the noun-noise beta power difference. Specifically, lower beta power, relative to noise trials, in the left frontal lobe (ERD) and greater beta power in the right (ERS) was observed. In the paper (Figure 1E) we compare the pattern of beta ERD/S between young children and adolescents and uur simulations captured developmental differences in the degree of lateralization of language production oscillatory patterns in response to speech versus noise (Fig. 1E).</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 46.235 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 5.570 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-ismail2026-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/GriffithsLab/whobpyt/gh-pages?urlpath=lab/tree/notebooks/auto_examples/eg__ismail2026.ipynb"><img alt="Launch binder" src="../_images/binder_badge_logo.svg" style="width: 150px;" />
@@ -810,12 +795,12 @@ Remarkably, despite being trained solely on early responses (0–400 ms), the mo
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="eg__getting_started.html"
+       href="eg__getting_started_connectome.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Getting started: simulate and fit a whole-brain model</p>
+        <p class="prev-next-title">Real connectome, synthetic EEG: stimulation, propagation, and fitting</p>
       </div>
     </a>
     <a class="right-next"

@@ -511,7 +511,7 @@ it is called and returns the folder it was saved to. See
 
 <dl class="py function">
 <dt class="sig sig-object py" id="whobpyt.datasets.fetchers.fetch_egmomi2023">
-<span class="sig-prename descclassname"><span class="pre">whobpyt.datasets.fetchers.</span></span><span class="sig-name descname"><span class="pre">fetch_egmomi2023</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redownload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#whobpyt.datasets.fetchers.fetch_egmomi2023" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">whobpyt.datasets.fetchers.</span></span><span class="sig-name descname"><span class="pre">fetch_egmomi2023</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redownload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anatomy_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#whobpyt.datasets.fetchers.fetch_egmomi2023" title="Link to this definition">#</a></dt>
 <dd><p>Fetch the data for the Momi et al. (2023) example.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -519,6 +519,10 @@ it is called and returns the folder it was saved to. See
 <dt><strong>dest_folder</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Where to save the files. Defaults to <code class="docutils literal notranslate"><span class="pre">~/.whobpyt/data/eg__momi2023</span></code>.</p>
 </dd>
 <dt><strong>redownload</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bltin-boolean-values" title="(in Python v3.15)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If True, delete any existing copy and download again.</p>
+</dd>
+<dt><strong>anatomy_only</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bltin-boolean-values" title="(in Python v3.15)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If True, fetch only connectivity, distances, stimulation weights,
+subject 1’s lead field, and Schaefer parcel names and coordinates.
+No empirical EEG or previously fitted model is downloaded.</p>
 </dd>
 </dl>
 </dd>

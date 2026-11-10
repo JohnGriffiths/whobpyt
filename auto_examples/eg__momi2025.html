@@ -589,22 +589,7 @@ high-order network, a substantial reduction or disappearance of evoked component
 <p>Download data</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="str"><span class="n">data_folder</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-whobpyt-datasets-fetchers sphx-glr-backref-type-py-function reference internal" href="../documentation/api/datasets.html#whobpyt.datasets.fetchers.fetch_egmomi2025" title="whobpyt.datasets.fetchers.fetch_egmomi2025"><span class="n">fetch_egmomi2025</span></a><span class="p">(</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[1/16] Downloading example-bem
-[2/16] Downloading example-src.fif
-[3/16] Downloading example-trans.fif
-[4/16] Downloading lh.Schaefer2018_200Parcels_7Networks_order.annot
-[5/16] Downloading rh.Schaefer2018_200Parcels_7Networks_order.annot
-[6/16] Downloading sub_dist.pickle
-[7/16] Downloading example_ieeg.fif
-[8/16] Downloading example_Schaefer2018_200Parcels_7Networks_rewritten.nii
-[9/16] Downloading all_eeg_evoked.npy
-[10/16] Downloading all_epo_seeg.pkl
-[11/16] Downloading example_epoched.fif
-[12/16] Downloading dist_Schaefer_1000parcels_7net.pkl
-[13/16] Downloading example-fittingresults.pkl
-[14/16] Downloading dist_Schaefer_1000parcels_7net.pkl
-[15/16] Downloading eeg_template.fif
-[16/16] Downloading model_results.npy
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[1/1] Downloading example-bem
 </pre></div>
 </div>
 </section>
@@ -953,7 +938,7 @@ high-order network, a substantial reduction or disappearance of evoked component
 </span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">elapsed_time</span></a> <span class="o">=</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">end_time</span></a> <span class="o">-</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">start_time</span></a><span class="w">
 </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="s2">Elapsed time: </span><span class="si">{</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">elapsed_time</span></a><span class="si">}</span><span class="s2"> seconds</span><span class="s2">&quot;</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<img src="../_images/sphx_glr_eg__momi2025_006.png" srcset="../_images/sphx_glr_eg__momi2025_006.png" alt="Early response -2-37ms, Late response 37-78ms, Late response 78-400ms" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time: 3.443889856338501 seconds
+<img src="../_images/sphx_glr_eg__momi2025_006.png" srcset="../_images/sphx_glr_eg__momi2025_006.png" alt="Early response -2-37ms, Late response 37-78ms, Late response 78-400ms" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time: 1.7495777606964111 seconds
 </pre></div>
 </div>
 </section>
@@ -1249,10 +1234,9 @@ high-order network, a substantial reduction or disappearance of evoked component
 </span><span class="w">
 </span><span class="n">model</span> <span class="o">=</span> <a class="sphx-glr-backref-module-torch-nn sphx-glr-backref-type-py-class reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module" title="torch.nn.Module"><span class="n">RNNJANSEN</span></a><span class="p">(</span><span class="n">params</span><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">node_size</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">node_size</span></a><span class="p">,</span> <span class="n">TRs_per_window</span><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">TPperWindow</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">step_size</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">step_size</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">output_size</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="int"><span class="n">output_size</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">tr</span></a><span class="o">=</span><a class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="float"><span class="n">tr</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sc</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">sc</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">lm</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">lm</span></a><span class="p">,</span> <a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">dist</span></a><span class="o">=</span><a class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray"><span class="n">dist</span></a><span class="p">,</span> <span class="n">use_fit_gains</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="w">
 </span></pre></div></div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Renamed /home/runner/.whobpyt/data/eg__momi2025/anatomical/example-bem to /home/runner/.whobpyt/data/eg__momi2025/anatomical/example-bem.fif
-    Average patch normals will be employed in the rotation to the local surface coordinates....
-    Converting to surface-based source orientations...
-    [done]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Average patch normals will be employed in the rotation to the local surface coordinates....
+Converting to surface-based source orientations...
+[done]
 </pre></div>
 </div>
 <p>Create objective function</p>
@@ -1307,11 +1291,11 @@ with open(load_path, 'rb') as f:
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch:  0
 torch.Size([200, 3, 2])
-eeg epoch:  0 loss: 1.8018116 Pseudo FC_cor:  0.47858646967465696 cos_sim:  0.07624893167272569
+eeg epoch:  0 loss: 1.7917912 Pseudo FC_cor:  0.44019952551988206 cos_sim:  0.07712420593437924
 Epoch:  1
 torch.Size([200, 3, 2])
-eeg epoch:  1 loss: 0.86574423 Pseudo FC_cor:  0.4940340593129924 cos_sim:  0.250595037978444
-eeg Pseudo FC_cor:  0.8010822692845605 cos_sim:  0.6259537934057293
+eeg epoch:  1 loss: 0.8625483 Pseudo FC_cor:  0.5155475291507303 cos_sim:  0.2571274857852054
+eeg Pseudo FC_cor:  0.7949482682602684 cos_sim:  0.6209203048131331
 No projector specified for this dataset. Please consider the method self.add_proj.
 No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
@@ -1716,7 +1700,7 @@ plt.legend()
 # Show the plot
 plt.show()&quot;&quot;&quot;</span><span class="w">
 </span></pre></div></div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 41.999 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 14.211 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg-momi2025-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/GriffithsLab/whobpyt/gh-pages?urlpath=lab/tree/notebooks/auto_examples/eg__momi2025.ipynb"><img alt="Launch binder" src="../_images/binder_badge_logo.svg" style="width: 150px;" />
