@@ -204,6 +204,16 @@ def mark_stimulus(ax):
     ax.set(xlabel='Time from stimulus (ms)', xlim=(times_ms[0], times_ms[-1]))
 
 
+def plot_source_map(ax, values, title, limit):
+    """Show parcel source activity in an axial atlas-centroid projection."""
+    image = ax.scatter(coords[:, 0], coords[:, 1], c=values, s=18,
+                       cmap='RdBu_r', vmin=-limit, vmax=limit, linewidths=0)
+    ax.set(title=title, xlabel='Right (mm)', ylabel='Anterior (mm)', aspect='equal')
+    ax.set_xlim(coords[:, 0].min() - 5, coords[:, 0].max() + 5)
+    ax.set_ylim(coords[:, 1].min() - 5, coords[:, 1].max() + 5)
+    return image
+
+
 # %%
 # 4. Forward simulations: change the stimulation site
 # ----------------------------------------------------
@@ -235,6 +245,25 @@ for column, (site, recording) in enumerate(responses.items()):
 fig.colorbar(image, ax=axs[0].tolist(), label='Change in E - I (mV)', shrink=0.7)
 
 # %%
+# Plot source activity at three poststimulus latencies in atlas space. These
+# centroid projections complement the parcel-by-time heatmaps above; they are
+# not cortical surface renderings.
+
+snapshot_times = [20, 50, 100]
+snapshot_indices = [int(np.argmin(np.abs(times_ms - time))) for time in snapshot_times]
+snapshot_limit = max(
+    np.abs(baseline(recording['source'])[:, snapshot_indices]).max()
+    for recording in responses.values())
+fig, axs = plt.subplots(len(snapshot_times), len(responses), figsize=(12, 10),
+                        sharex=True, sharey=True, layout='constrained')
+for row, (snapshot_time, sample) in enumerate(zip(snapshot_times, snapshot_indices)):
+    for column, (site, recording) in enumerate(responses.items()):
+        image = plot_source_map(
+            axs[row, column], baseline(recording['source'])[:, sample],
+            f'{site}: {snapshot_time} ms', snapshot_limit)
+fig.colorbar(image, ax=axs.ravel().tolist(), label='Change in E - I (mV)', shrink=0.8)
+
+# %%
 # 5. Forward simulations: vary coupling and measure propagation
 # --------------------------------------------------------------
 #
@@ -264,6 +293,20 @@ for ax in axs:
     mark_stimulus(ax)
     ax.legend(fontsize=8)
 fig.tight_layout()
+
+# Compare the spatial source pattern at 50 ms across the same coupling sweep.
+coupling_map_time = 50
+coupling_map_sample = int(np.argmin(np.abs(times_ms - coupling_map_time)))
+coupling_map_limit = max(
+    np.abs(baseline(recording['source'])[:, coupling_map_sample]).max()
+    for recording in sweep.values())
+fig, axs = plt.subplots(1, len(coupling_values), figsize=(12, 3.8),
+                        sharex=True, sharey=True, layout='constrained')
+for ax, coupling in zip(axs, coupling_values):
+    image = plot_source_map(
+        ax, baseline(sweep[coupling]['source'])[:, coupling_map_sample],
+        f'g = {coupling}: {coupling_map_time} ms', coupling_map_limit)
+fig.colorbar(image, ax=axs.tolist(), label='Change in E - I (mV)', shrink=0.8)
 
 # %%
 # 6. Fit synthetic motor responses, not empirical recordings
@@ -395,6 +438,20 @@ print('Estimated parameters:',
 held_out = 'Left visual'
 held_target = baseline(responses[held_out]['eeg'])
 held_prediction = baseline(fitted_predictions[held_out]['eeg'])
+map_time = 50
+map_sample = int(np.argmin(np.abs(times_ms - map_time)))
+target_source = baseline(responses[held_out]['source'])[:, map_sample]
+before_source = baseline(initial_predictions[held_out]['source'])[:, map_sample]
+after_source = baseline(fitted_predictions[held_out]['source'])[:, map_sample]
+source_limit = max(np.abs(target_source).max(), np.abs(before_source).max(),
+                   np.abs(after_source).max())
+fig, axs = plt.subplots(1, 3, figsize=(12, 3.8), sharex=True, sharey=True,
+                        layout='constrained')
+for ax, values, title in zip(
+        axs, [target_source, before_source, after_source],
+        ['Synthetic target', 'Before fitting', 'After fitting']):
+    image = plot_source_map(ax, values, f'{held_out}: {title}, {map_time} ms', source_limit)
+fig.colorbar(image, ax=axs.tolist(), label='Change in E - I (mV)', shrink=0.8)
 sensor_limit = np.abs(held_target).max()
 fig, axs = plt.subplots(1, 3, figsize=(13, 3.8), sharex=True, sharey=True,
                         layout='constrained')
