@@ -156,3 +156,17 @@ def test_example_fetchers_request_all_files(monkeypatch, tmp_path, name, n_files
     assert len(seen) == n_files
     assert all(url.startswith(fetchers.OSF_DOWNLOAD_URL + "/") for url, _ in seen)
     assert all(dest.startswith(str(tmp_path)) for _, dest in seen)
+
+
+def test_momi2023_anatomy_only(monkeypatch, tmp_path):
+    seen = []
+    monkeypatch.setattr(fetchers, "pull_file",
+                        lambda url, dest, download_method="wget": seen.append(os.path.basename(dest)))
+    out = fetchers.fetch_egmomi2023(dest_folder=str(tmp_path), anatomy_only=True)
+    assert out == str(tmp_path)
+    assert set(seen) == {
+        "Schaefer2018_200Parcels_7Networks_count.csv",
+        "Schaefer2018_200Parcels_7Networks_distance.csv",
+        "stim_weights.npy", "sub_1_leadfield",
+        "Schaefer2018_200Parcels_7Networks_order_FSLMNI152_2mm.Centroid_RAS.txt",
+    }

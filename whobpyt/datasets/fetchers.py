@@ -200,7 +200,7 @@ def fetch_egtmseeg(dest_folder=None, redownload=False):
     return _fetch_osf_files(files_dict, 'eg__tmseeg', dest_folder, redownload)
 
 
-def fetch_egmomi2023(dest_folder=None, redownload=False):
+def fetch_egmomi2023(dest_folder=None, redownload=False, anatomy_only=False):
     """Fetch the data for the Momi et al. (2023) example.
 
     Parameters
@@ -209,6 +209,10 @@ def fetch_egmomi2023(dest_folder=None, redownload=False):
         Where to save the files. Defaults to ``~/.whobpyt/data/eg__momi2023``.
     redownload : bool
         If True, delete any existing copy and download again.
+    anatomy_only : bool
+        If True, fetch only connectivity, distances, stimulation weights,
+        subject 1's lead field, and Schaefer parcel names and coordinates.
+        No empirical EEG or previously fitted model is downloaded.
 
     Returns
     -------
@@ -238,6 +242,16 @@ def fetch_egmomi2023(dest_folder=None, redownload=False):
         '68107567fed207be8f3cbf9f': 'all_avg.mat_avg_high_epoched',
         '681074d878cb4eb6283cbffa': 'leadfield',
     }
+    if anatomy_only:
+        anatomy_files = {
+            'Schaefer2018_200Parcels_7Networks_count.csv',
+            'Schaefer2018_200Parcels_7Networks_distance.csv',
+            'stim_weights.npy', 'sub_1_leadfield',
+        }
+        files_dict = {key: value for key, value in files_dict.items()
+                      if value in anatomy_files}
+        files_dict['680fe69f9ba48ef173568c07'] = (
+            'Schaefer2018_200Parcels_7Networks_order_FSLMNI152_2mm.Centroid_RAS.txt')
     return _fetch_osf_files(files_dict, 'eg__momi2023', dest_folder, redownload)
 
 
